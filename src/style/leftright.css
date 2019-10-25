@@ -1,0 +1,108 @@
+
+.left-dh ul li:hover{
+	background: #007DDB;
+	color: white;
+	display: block;
+}
+.left-dh ul li{
+	border-bottom:1px solid #E6E6E6 ;
+}
+.left-dh ul li a{
+	display: block;
+}
+.left-dh ul li:hover a{
+	color: white;
+	display: block;
+}
+.zszx-left dl{
+	text-align: center;overflow: hidden;margin-bottom: 20px;
+}
+.zszx-left dl dt{
+	width: 100px;margin: 0 auto;}
+.zszx-left dl dd{
+	padding: 10px;}	
+.school-zszx-left {
+	width: 250px;float: left;background: #fafaf9;border: 1px solid #e6e6e6;
+border-radius:2px ;
+}
+.school-zszx-left .left-dh ul {padding: 0px;overflow: hidden;}
+
+.school-zszx-left .left-dh .zsxx-tit{
+	padding:10px 20px;font-weight: 600;
+	color:#da312b ;
+	font-size: 16px;
+}
+.school-zszx-left .left-dh ul  p{
+	padding-top: 20px;font-size: 14px;
+}
+.school-zszx-left .left-dh ul  li{
+	padding-top: 10px;font-size: 14px;padding:0 20px ;
+	line-height: 30px;height: 30px;
+}
+.school-zszx-left .left-dh ul  li button{
+	background: #0893b0;width: 210px;margin: 0 auto;height: 40px;line-height: 40px;border: none;color: white;
+}
+
+.zszx-left {
+	width: 250px;float: left;background: #fafaf9;border: 1px solid #e6e6e6;
+border-radius:2px 
+}
+.zszx-left  ul {padding: 20px;overflow: hidden;}
+.zszx-left ul  strong{
+	color:#da312b ;
+	font-size: 16px;
+}
+.zszx-left  ul  p{
+	padding-top: 20px;font-size: 14px;
+}
+.zszx-left  ul  li{
+	font-size: 14px;
+	line-height: 40px;
+}
+.zszx-left ul  li button{
+	background: #0893b0;width: 210px;margin: 0 auto;height: 40px;line-height: 40px;border: none;color: white;
+}
+
+
+
+
+.list{
+	width: 740px;float: right;background: #fafaf9;border: 1px solid #e6e6e6;
+	overflow:hidden;border-radius:2px ;padding-bottom: 20px;
+}
+.list-1 dl{width: 90%;margin: 0 auto;overflow: hidden;text-align: center;}
+.list-1 dl dt{width: 90%;margin: 0 auto;}
+.list-1 dl dd{padding: 10px;}
+
+
+.list-1{padding: 10px;}
+.list-1 ul{overflow: hidden;width: 98%;margin: 0 auto;}
+.list-1 ul li{
+	font-size: 12px;
+	height: 30px ;line-height: 30px;border-bottom: 1px dashed darkgrey;
+}
+.list-1 ul li img{
+	height: 15px;
+}
+.list-1 ul li a:hover{
+	color: #007DDB;
+}
+.list-1 ul li span{
+	float: right;
+}
+.page{
+	text-align: center;
+}
+
+
+/*详情页*/
+.list-page{
+	width: 700px;margin: 0 auto;overflow: hidden;
+}
+.list-page dl{text-align: center;overflow: hidden;border-bottom:1px solid darkgray ;padding-bottom: 10px;}
+.list-page dl dt{font-size: 16px;line-height: 40px;}
+.list-page dl dd{font-size: 12px;}
+
+.list-page-nr{font-size: 14px;line-height: 220%;padding-top: 20px;}
+.list-page-nr img {max-width: 100%;}
+.list-page-nr p{text-indent: 2em;}

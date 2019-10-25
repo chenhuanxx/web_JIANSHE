@@ -1,0 +1,225 @@
+/*公共样式*/
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, font, img, ins, kbd, q, s, samp, small, strike, 
+strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, 
+tfoot, thead, tr, th, td ,textarea,input { margin:0; padding:0;  }
+address,cite,dfn,em,var, i {font-style:normal;}
+body {font-size: 14px;  color: #333; }
+table { border-collapse:collapse; border-spacing:0; }
+h1, h2, h3, h4, h5, h6, th { font-size: 100%; font-weight: normal; }
+button,input,select,textarea{font-size:100%;}
+fieldset,img{border:0;}
+a,
+img {
+    -webkit-touch-callout: none
+}
+a,
+a:active,
+a:focus,
+a:hover,
+a:visited {text-decoration: none}
+input[type=password],
+input[type=text],
+textarea {
+    resize: none;
+    outline: 0;
+    -webkit-appearance: none;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    background: #fff
+}
+ul, ol { list-style: none; }
+:focus{ outline:none;}
+.clearfix{ clear: both; content: ""; display: block; overflow: hidden }
+.clear{clear: both;}
+.fl{ float: left; }
+.fr{float: right;}
+.center{
+        width: 1000px;
+        margin:0 auto;
+        overflow: hidden;
+    }
+.mar-t-2{margin-top:20px; }
+.mar-b-2{margin-bottom:20px; }
+.mar-t-5{margin-top:50px; }
+.font-12{font-size: 12px}
+.font-20{font-size: 20px}
+.font-24{font-size: 24px}
+.font-22{font-size: 22px}
+.font-18{font-size: 18px}
+.font-16{font-size: 16px}
+/*导航*/
+.header{
+	width: 1000px;
+        margin:0px auto;
+        overflow: hidden;
+}
+.navigation-bg{
+    width: 100%;
+    background: #0893b0;
+    color: whitesmoke;
+}
+.gsmc{padding-top: 40px;overflow: hidden;}
+.wxerm1{padding: 10px;}
+.navigation-bg ul li{list-style: none;}
+.navigation-bg ul li a{color: white;display: block;font-size: 16px;}
+.navigation-bg ul li{
+    text-align: center;
+    width: 10%;
+    float: left;
+    height: 40px;
+    line-height: 40px;
+}
+
+.navigation-bg ul li:hover{
+    background: #f58a3a;
+    display: block;
+}
+
+/*校训*/
+.school-xx{
+	margin:10px 0px 10px 0px; height: 35px;background: #63c3d1;color: white;line-height: 35px;text-align: center;padding: 10px;
+}
+.school-xx img{
+	width: 30px;
+}
+.school-xx span{font-size: 24px;letter-spacing: 12px;}
+/*轮播*/
+#lunbo img{height: 280px;}
+
+/*关键字搜索*/
+.search-gjz{ margin-top: 40px;}
+.search-gjz p{float: left;height: 30px;line-height: 30px;padding-right: 20px;font-size: 14px;}
+.search-gjz input{height: 30px ;line-height: 30px;float: left;width: 250px;font-size: 12px;}
+.search-gjz button{height: 30px ;line-height: 30px;float: left;width: 80px;font-size: 12px;}
+.search-gjz a{color: white;}
+
+/*招生方式*/
+.zsfs{width: 1000px; margin: 20px auto;overflow: ;}
+.zsfs ul li {    width: 178px;
+    background-image: url(../images/zs-bg.png);
+    background-size: cover;
+    height: 30px;
+    text-align: center;
+    line-height: 30px;
+    float: left;}
+.zsfs ul i{float: left;height: 30px;}
+.zsfs ul i img{height: 30px;}
+.zsfs ul li a{display: block;color: white;}
+.zsfs ul li a:hover{color: #f1ce66;}
+
+/*视频*/
+.school-sp{
+	width: 400px;float: left;border-radius:10px ;
+	border:5px solid #0893b0 ;height: 350px;
+}
+ /*video{ width:400px;height:350px;}*/
+/*通知公告*/
+.school-tzgg{
+	width: 575px;float: right;background: #fafaf9;border: 1px solid #e6e6e6;
+
+	height: 360px;border-radius:2px ;
+}
+
+.layui-tab-title li{font-weight: 400;font-size: 14px;}
+.layui-tab-title li span a{font-size: 12px;}
+.layui-tab-title li span a:hover{color: #007DDB;}
+.layui-tab {
+     margin: 0px 0; 
+    text-align: left!important;
+}
+.tzgg-news ul{overflow: hidden;width: 98%;margin: 0 auto;}
+.tzgg-news ul li{
+	height: 30px ;line-height: 30px;border-bottom: 1px dashed darkgrey;font-size: 12px;
+}
+.tzgg-news ul li img{
+	height: 15px;
+}
+.tzgg-news ul li a:hover{
+	color: #007DDB;
+}
+.tzgg-news ul li span{
+	float: right;
+}
+/*招生咨询*/
+.school-zszx{
+	width: 250px;float: left;background: #fafaf9;border: 1px solid #e6e6e6;
+border-radius:2px ;height: 430px;
+}
+.school-zszx ul {padding: 20px;overflow: hidden;}
+.school-zszx ul  strong{
+	color:#da312b ;
+	font-size: 16px;
+}
+.school-zszx ul  p{
+	padding-top: 20px;font-size: 14px;
+}
+.school-zszx ul  li{
+	padding-top: 10px;font-size: 14px;
+	line-height: 40px;
+}
+.school-zszx ul  li button{
+	background: #0893b0;width: 210px;margin: 0 auto;height: 40px;line-height: 40px;border: none;color: white;
+}
+.school-xyfc{
+	border: 1px solid #e6e6e6;
+	width: 715px;float: right;padding: 10px;
+	border-radius:2px ;
+	height: 410px;
+}
+.school-xyfc  strong{
+	color:#da312b ;
+	font-size: 16px;
+}
+.school-xyfc .school-xyfc-tp dl{
+	width: 31.333%;float: left;
+	padding:0px 1%;overflow: hidden;
+}
+.school-xyfc .school-xyfc-tp dl dt{
+	border: 1px solid #007DDB;
+	overflow: hidden;
+	text-align: center;
+	line-height:160px ;
+	width: 100%;
+	height: 160px;
+}
+.school-xyfc span a{font-size: 12px;}
+.school-xyfc span a:hover{color: #007DDB;}
+.school-xyfc .school-xyfc-tp dl dt img{
+	width: 100%;
+}
+.school-xyfc .school-xyfc-tp dl dt:hover img {
+    transform: scale(1.2);
+    transition: all 1s;
+}
+.school-xyfc .school-xyfc-tp dl  dd{
+	height: 30px;line-height: 30px;
+}
+/*友情链接*/
+.xylblj .xylblj-tit {
+	width: 100%;overflow: hidden;border-bottom:5px solid #32994a;
+	font-size: 16px;font-weight: 600;
+}
+.xylblj ul{width: 100%;margin-top: 10px;
+	overflow: hidden;
+	
+}
+.xylblj ul li a{
+	height: 20px;
+	float: left;
+	width:140px ;
+	overflow: hidden;　　　　　　　　/*对超出容器的部分强制截取，高度不确定则换行*/
+    text-overflow: ellipsis;　　　　/*显示省略符号来代表被修剪的文本。*/
+    white-space: nowrap;　　　　　　/*禁止换行*/
+	float: left;margin: 10px;
+} 
+.xylblj ul li a:hover{
+	color: #0893b0;
+}
+/*尾部*/
+.footer{padding:30px 0px;
+	background: #0893b0;width: 100%;
+	
+}
+.footer p{text-align: center;
+	color: white;
+	padding: 5px;}
