@@ -32,7 +32,7 @@
                         <li  > <router-link to="/">首页</router-link></li>
                         <li  > <router-link to="/announcement">通知公告</router-link></li>
                         <li  > <router-link to="/menu">专业介绍</router-link></li>
-                        <li  > <a href="../views/admissionsGuide.html">招生简章</a></li>
+                        <li  > <router-link to="admin">招生简章</router-link></li>
                         <li  > <a href="../views/enrollmentPlan.html">招生计划</a></li>
                         <li  > <a href="../views/admissionInquiry.html">录取查询</a></li>
                         <li  > <a href="../views/campusTtyle.html">校园风采</a></li>
