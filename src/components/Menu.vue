@@ -1,5 +1,5 @@
 <template>
- <div class="center"> 
+  <div >
   <el-table
     ref="multipleTable"
     :data="tableData"
@@ -27,11 +27,10 @@
     </el-table-column>
   </el-table>
   <div style="margin-top: 20px">
-    <el-button @click="toggleSelection">切换第二、第三行的选中状态</el-button>
+    <el-button @click="toggleSelection([tableData[1], tableData[2]])">切换第二、第三行的选中状态</el-button>
     <el-button @click="toggleSelection()">取消选择</el-button>
   </div>
-
- </div>
+  </div>
 </template>
 
 <script>
@@ -67,27 +66,16 @@
           name: '王小虎',
           address: '上海市普陀区金沙江路 1518 弄'
         }],
-        rows:[
-          {
-          date: '2016-05-03',
-          name: '王小虎',
-          address: '上海市普陀区金沙江路 1518 弄'
-        },
-          {
-          date: '2016-05-07',
-          name: '王小虎',
-          address: '上海市普陀区金沙江路 1518 弄'
-        }
-        ],
         multipleSelection: []
       }
     },
 
     methods: {
       toggleSelection(rows) {
-        if (this.rows) {
-          this.rows.forEach(row => {
-            console.log(row)
+        console.log(rows);
+        debugger
+        if (rows) {
+          rows.forEach(row => {
             this.$refs.multipleTable.toggleRowSelection(row);
           });
         } else {

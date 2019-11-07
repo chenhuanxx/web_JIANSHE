@@ -1,5 +1,24 @@
 <template>
   <div class="center">
+
+	   <div class="center"> 
+		   <el-carousel :interval="5000" arrow="always"  height="245px">
+			    <el-carousel-item  > 
+				  <h3><img src="../images/logo1.jpg" width="100%" height="300px"/></h3>
+			    </el-carousel-item>
+			  	<el-carousel-item  > 
+				  <h3><img src="../images/logo2.jpg" width="100%"/></h3>
+			    </el-carousel-item>
+			 	 <el-carousel-item  > 
+				  <h3><img src="../images/logo3.jpg" width="100%"/></h3>
+			    </el-carousel-item>
+			 	 <el-carousel-item  > 
+				  <h3><img src="../images/logo4.jpg" width="100%"/></h3>
+			    </el-carousel-item>
+			  </el-carousel>
+        </div>
+
+
       <div class="center">
         	<div class="lqcx fl" style="margin-top: 20px;">
 		        	<a href="../views/admissionInquiry.html" title="请输入您的身份证号码查询"><img src="../images/lqcx.png"  width="400px"/></a> 
@@ -51,19 +70,13 @@
         			<!-- <video style="width:100%; height:100%; object-fit: fill"  poster="../images/about2.png"  controls="controls" muted autoplay="autoplay"> -->
 					    <!-- <source src="../video/wbxy.mp4" type="video/mp4" > -->
 					<!-- </video> -->
-        			<!--<iframe  src='http://player.youku.com/embed/XMzY4MjM4NjMyMA==' frameborder=0 'allowfullscreen'></iframe>-->
+					
 	        	</div>
 	        	
 	        	<div class="fl school-tzgg">
-	        		<div class="layui-tab">
-					  <ul class="layui-tab-title">
-					    <li class="layui-this">通知公告</li>
-					    <li>招生计划</li>
-					    <li class="fr"><span><a href="">查看更多>></a></span></li>
-					  </ul>
-					  <div class="layui-tab-content">
-					    <div class="layui-tab-item layui-show tzgg-news">
-					    	<ul >
+					 <el-tabs v-model="activeName" type="card" @tab-click="handleClick">
+						<el-tab-pane label="通知公告" name="first" class="tzgg-news">
+							<ul >
 					    		<li><a href="../views/detailsPage.html">我校召开2019年国家奖学金评审会</a>
 					    			<img src="../images/new.png" />
 					    			<img src="../images/hot.png" />
@@ -78,9 +91,9 @@
 					    		<li>我校召开2019年国家奖学金评审会<span>2019-10-10</span></li>
 					    		<li>我校校企合作课题获中华职教社课题成果二等奖<span>2019-10-10</span></li>
 					    	</ul>
-					    </div>
-					    <div class="layui-tab-item tzgg-news">
-					    	<ul >
+						</el-tab-pane>
+						<el-tab-pane label="招生计划" name="second" class="tzgg-news" >
+							<ul >
 					    		
 					    		<li><a href="../views/detailsPage.html">信息工程学院党总支开展“不忘初心、牢记使命”主题讲座</a><span>2019-10-10</span></li>
 					    		<li>我校校企合作课题获中华职教社课题成果二等奖<span>2019-10-10</span></li>
@@ -100,9 +113,10 @@
 					    		<li>我校校企合作课题获中华职教社课题成果二等奖<span>2019-10-10</span></li>
 					    		<li>我校召开2019年国家奖学金评审会<span>2019-10-10</span></li>
 					    	</ul>
-					    </div>
-					  </div>
-					</div>
+							
+						</el-tab-pane> 
+					</el-tabs>
+	        		
 	        	</div>
         </div>
 
@@ -192,27 +206,6 @@
         	</div>
         </div>
         
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        
-        	
   </div>
 
 
@@ -221,19 +214,23 @@
 </template>
 <script>
   export default {
-     data() {
+    data() {
       return {
-       
-       
-
+        activeName: 'first',
+		img:[
+			"../images/logo1.jpg'",
+			'../images/logo2.jpg',
+			'../images/logo3.jpg',
+			'../images/logo4.jpg',
+		]
       };
     },
- 
     methods: {
-      
-      
-    },
- };
+      handleClick(tab, event) {
+        console.log(tab, event);
+      }
+    }
+  };
    
 </script>
  
