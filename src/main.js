@@ -21,6 +21,10 @@ import './style/index.css'
 import './style/leftright.css'
 import './style/layui.css'
 
+// import './js/index'
+// import './js/layui'
+
+
 /* eslint-disable no-new */
 new Vue({
   el: '#app',

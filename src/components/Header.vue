@@ -28,14 +28,14 @@
                 <div class="navigation-bg" id="daohang">
                     <ul class="center">
                         <li  > <router-link to="/">首页</router-link></li>
-                        <li  > <router-link to="/announcement">通知公告</router-link></li>
-                        <li  > <router-link to="/menu">专业介绍</router-link></li>
-                        <li  > <router-link to="admin">招生简章</router-link></li>
-                        <li  > <a href="../views/enrollmentPlan.html">招生计划</a></li>
-                        <li  > <a href="../views/admissionInquiry.html">录取查询</a></li>
-                        <li  > <a href="../views/campusTtyle.html">校园风采</a></li>
-                        <li  > <a href="../views/reportGuide.html">报道指南</a></li>
-                        <li  > <a href="../views/contact.html">联系我们</a></li>
+                        <li  > <router-link to="/tzgg">通知公告</router-link></li>
+                        <li  > <router-link to="/zyjs">专业介绍</router-link></li>
+                        <li  > <router-link to="/zsjz">招生简章</router-link></li>
+                        <li  > <router-link to="/zsjh">招生计划</router-link></li>
+                        <li  > <router-link to="/lqcx">录取查询</router-link></li>
+                        <li  > <router-link to="/xyfc">校园风采</router-link></li>
+                        <li  > <router-link to="/bdzn">报道指南</router-link></li>
+                        <li  > <router-link to="/lxwm">联系我们</router-link></li> 
                         <li  > <a target="_blank" href="http://www.siso.edu.cn/">学院首页</a></li>
                     </ul>
                 </div>
