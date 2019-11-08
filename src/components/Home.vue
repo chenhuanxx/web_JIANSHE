@@ -217,19 +217,51 @@
     data() {
       return {
         activeName: 'first',
-		img:[
-			"../images/logo1.jpg'",
-			'../images/logo2.jpg',
-			'../images/logo3.jpg',
-			'../images/logo4.jpg',
-		]
+		
       };
-    },
+	},
+	created(){
+
+	},
     methods: {
+		getlist(){
+			
+		},
+
+
+
+
+
+
       handleClick(tab, event) {
         console.log(tab, event);
-      }
-    }
+	  }
+
+	  
+
+
+
+
+
+
+
+
+
+
+
+	}
+	
+
+
+
+
+
+
+
+
+
+
+
   };
    
 </script>

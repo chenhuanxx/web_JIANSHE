@@ -6,6 +6,13 @@ const path = require('path')
 
 module.exports = {
   dev: {
+    // proxyTable: {
+    //   　　　　　　　　//设置代理,连接后台地址
+    //   　　　　　　　　'/api': {
+    //   　　　　　　　　　　target: , "http://"// 目标接口
+    //   　　　　　　　　　　pathRewrite: { '^/api': '' }, // 替换对应标识符，非必需
+    //   　　　　　　　　},
+    //   　　　　　　},
 
     // Paths
     assetsSubDirectory: 'static',

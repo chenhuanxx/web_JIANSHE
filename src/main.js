@@ -4,6 +4,11 @@ import Vue from 'vue'
 import App from './App'
 import router from './router'
 
+
+import axios from '@/request/http.js'
+Vue.prototype.$http = axios;  
+
+
 Vue.config.productionTip = false
  
 import ElementUI from 'element-ui'
@@ -14,6 +19,7 @@ Vue.use(ElementUI)
 import './style/admin.css'
 import './style/index.css'
 import './style/leftright.css'
+import './style/layui.css'
 
 /* eslint-disable no-new */
 new Vue({

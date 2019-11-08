@@ -22,11 +22,9 @@
                     </div>
             </div>
 
-             <div id="">
+             <div class="img-t">
                 	<img src="../images/top.jpg" width="100%" height="200px"/>
             </div>
-
-
                 <div class="navigation-bg" id="daohang">
                     <ul class="center">
                         <li  > <router-link to="/">首页</router-link></li>
@@ -46,12 +44,22 @@
 </template>
 <script>
 
+import axios from 'axios'
      export default{
          data(){
              return{
-                //  class="active"
+                 
              }
              
+         },
+         created(){
+           this.$http.post('/itemProps/addItemProps',{
+            　　name: this.name,
+            　　parentId:this.parentId,
+            　　sortOrder:0
+            }).then((res)=>{
+            　　console.log(res)
+            })
          },
          methods:{
              
@@ -60,3 +68,6 @@
 
      }
  </script>
+ <style >
+ /* .img-t{overflow:hidden;height: 200px;} */
+ </style>
