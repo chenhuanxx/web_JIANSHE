@@ -39,7 +39,7 @@ iframe{padding: 10px;border: none;width:100%;height: 400px;}
 /*校园风采*/
 .list-tp{width:720px;margin: 0 auto;overflow: hidden;}
 .list-tp dl{width: 31.333%;padding: 1%;overflow: hidden;text-align: center;float: left;}
-.list-tp dl dt{width: 100%;overflow: hidden;height: 225px;text-align: center;line-height: 225px;}
+.list-tp dl dt{width: 100%;overflow: hidden;height: 225px;text-align: center;line-height: 225px;border: 1px solid darkcyan !important; border-radius:4px ;}
 .list-tp dl dt img{width: 100%;}
 .list-tp dl dt img:hover{transition: 1s;transform: scale(1.3);}
 .list-tp dl dd{padding: 10px;}

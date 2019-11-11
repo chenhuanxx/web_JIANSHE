@@ -30,9 +30,10 @@
         			
 			<div class="fl list">
 				<div class="list-1">
-					<dl>
-						<dt><img src="../images/school1.jpg" width="100%"/></dt>
-						<dd>通知公告</dd>
+					<dl >
+						
+						<dt><router-link :to="{path: 'listpage/xqy', query: {id: id}}"><img :src="picture" width="100%"/></router-link></dt>
+						<dd><router-link :to="{path: 'listpage/xqy', query: {id: id}}">{{title}}</router-link></dd>
 					</dl>
 					<ul >
 						<li v-for="(item ,index) in NoticeData" :key="index"><router-link :to="{path: 'listpage/xqy', query: {id: item.id}}">{{item.title}}</router-link> 
@@ -63,10 +64,16 @@
   export default {
      data() {
       return {
+		  host:'http://47.92.84.126',
 			NoticeData:[],
-			total:20,
+			
+			total:1,
 			page:'1',
 			size:'20',
+			title:'',
+			id:'',
+			picture:'',
+
       };
 	},
 	created(){
@@ -91,19 +98,18 @@
 					this.NoticeData =  arr;
 					// this.total = response.data.page.size ;
 					this.total =  response.data.page.total ;
+					this.picture = this.host + response.data.page.records[0].picture;
+					console.log(this.picture)
+					this.title = response.data.page.records[0].title ;
+					this.id = response.data.page.records[0].id;
+					
 				}) 
 
 			},
-
-			//  handleSizeChange(val) {
-			// 	 this.page= val;
-			// 	 this.Notice()
-			// 	console.log(`每页 ${val} 条`);
-			// },
 			handleCurrentChange(val) {
 				this.page= val;
 				 this.Notice()
-				console.log(`当前页: ${val}`);
+				// console.log(`当前页: ${val}`);
 			}
 
 
@@ -113,6 +119,4 @@
 </script>
  
 
-<style>
-
-</style>
+ 

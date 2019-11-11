@@ -32,19 +32,21 @@
 				<div class="contact">
 					<ul>
 						<strong>学校联系方式</strong>
-						<li>学校名称 : 苏州工业园区服务外包职业学院</li>
-						<li>咨询电话 : 0512-62933888、62932251、62932092</li>
+						<li>学校名称 : {{schoolName}}</li>
+						<li>咨询电话 :{{consultTel}}</li>
+						<!-- // 0512-62933888、62932251、62932092 -->
 						<li>商学院电话 : 0512-62932663</li>
 						<li>人文艺术学院电话 : 0512-62932640</li>
 						<li>信息工程学院电话 : 0512-62932507</li>
 						<li>纳米科技学院电话 : 0512-62932554</li>
 						<li>人工智能学院电话 : 0512-62932553</li>
 						<li>学校官网 : <a href="http://www.siso.edu.cn/" target="_blank" title="苏州工业园区服务外包职业学院">
-							http://www.siso.edu.cn</a>
+							{{officalWebsite}}</a>
 						</li>
-						<li>咨询QQ群 : 1276520</li>
-						<li>微信号 : sisozs</li>
-						<li>学校地址 : 江苏省苏州独墅湖科教创新区若水路99号</li>
+						<li>咨询QQ群 : {{consultQq}}</li>
+						<li>微信号 : {{wechat}}</li>
+						<li>学校地址 : {{schoolAddress}}</li>
+						<li>邮箱 : {{email}}</li>
 						<li>邮编 : 215123</li>
 					</ul>
 					<div class="map">
@@ -53,7 +55,7 @@
 					<div class="xslxfs">
 						<strong>学生联系方式</strong>
 					</div>
-					<form class="layui-form" action="">
+					<form class="layui-form"  >
 						
 					  <div class="layui-form-item">
 					    <label class="layui-form-label"><span style="color: red;">*</span>联系方式:</label>
@@ -102,13 +104,55 @@
   export default {
      data() {
       return {
-       
-       
+			"schoolName": " ",
+			"consultTel": " ",
+			"busCollegeTel": " ",
+			"humanCollegeTel": " ",
+			"itCollegeTel": " ",
+			"nanoCollegeTel": " ",
+			"aiCollegeTel": " ",
+			"officalWebsite": " ",
+			"consultQq": " ",
+			"wechat": " ",
+			"schoolAddress": " ",
+			"email": " "
 
       };
-    },
+	},
+	created(){
+		this.getdata();
+	},
  
     methods: {
+		getdata(){
+			this.$http.get("/app/contactus/list").then((response) => {
+
+				   this.schoolName=response.data.contactusdata.schoolName;
+				   this.schoolAddress=response.data.contactusdata.schoolAddress;
+				   this.email=response.data.contactusdata.email;
+				   this.consultQq=response.data.contactusdata.consultQq;
+				   this.consultTel=response.data.contactusdata.consultTel;
+				   this.wechat=response.data.contactusdata.wechat;
+				   this.officalWebsite=response.data.contactusdata.officalWebsite;
+
+
+	// "busCollegeTel": "15112345678",
+	// 		"humanCollegeTel": "15212345678",
+	// 		"itCollegeTel": "15312345678",
+	// 		"nanoCollegeTel": "15412345678",
+	// 		"aiCollegeTel": "15512345678",
+				   
+				//    this.schoolName=response.data.contactusdata.schoolName;
+				//    this.schoolName=response.data.contactusdata.schoolName;
+				//    this.schoolName=response.data.contactusdata.schoolName;
+
+					 
+				}) 
+
+		},
+
+
+
      tj(){
 		 alert('a')
 	 }
