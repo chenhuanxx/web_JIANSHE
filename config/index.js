@@ -3,21 +3,24 @@
 // see http://vuejs-templates.github.io/webpack for documentation.
 
 const path = require('path')
-
+ 
 module.exports = {
-  dev: {
-    // proxyTable: {
-    //   　　　　　　　　//设置代理,连接后台地址
-    //   　　　　　　　　'/api': {
-    //   　　　　　　　　　　target: , "http://"// 目标接口
-    //   　　　　　　　　　　pathRewrite: { '^/api': '' }, // 替换对应标识符，非必需
-    //   　　　　　　　　},
-    //   　　　　　　},
-
-    // Paths
+  
+  dev: { 
     assetsSubDirectory: 'static',
     assetsPublicPath: '/',
-    proxyTable: {},
+    proxyTable: {//在这里面配置代理跨域
+      '/api': {  
+        target: 'http://47.92.84.126/siso-enroll',  
+        changeOrigin: true,  
+        pathRewrite: {  
+            '^/api': '/'  
+            //写'/api'就等于写'https://api.douban.com'
+            //写"/api/v2/movie/top250"就等于写"https://api.douban.com/v2/movie/top250"
+        }  
+      } 
+   },
+   
 
     // Various Dev Server settings
     host: 'localhost', // can be overwritten by process.env.HOST

@@ -39,35 +39,16 @@
                         <li  > <a target="_blank" href="http://www.siso.edu.cn/">学院首页</a></li>
                     </ul>
                 </div>
-                
        </div>
 </template>
-<script>
-
-import axios from 'axios'
+<script> 
      export default{
          data(){
-             return{
-                 
+             return{ 
              }
-             
          },
-         created(){
-           this.$http.post('/itemProps/addItemProps',{
-            　　name: this.name,
-            　　parentId:this.parentId,
-            　　sortOrder:0
-            }).then((res)=>{
-            　　console.log(res)
-            })
-         },
-         methods:{
-             
-
-         }
-
      }
  </script>
  <style >
- /* .img-t{overflow:hidden;height: 200px;} */
+ .top{min-width: 1000px;}
  </style>

@@ -58,7 +58,7 @@
 					  <div class="layui-form-item">
 					    <label class="layui-form-label"><span style="color: red;">*</span>联系方式:</label>
 					    <div class="layui-input-block">
-					      <input type="text" name="lxfs" required  lay-verify="required" placeholder="电话或者QQ" autocomplete="off" class="layui-input">
+					      <input type="text" name="lxfs"  required  lay-verify="required" placeholder="电话或者QQ" autocomplete="off" class="layui-input">
 					    </div>
 					  </div>
 					  <div class="layui-form-item">
@@ -87,7 +87,7 @@
 					  </div>
 					  <div class="layui-form-item">
 					    <div class="layui-input-block">
-					      <button class="layui-btn" lay-submit lay-filter="formDemo1">立即提交</button>
+					      <button class="layui-btn" lay-submit lay-filter="formDemo1" @click="tj">立即提交</button>
 					      <button type="reset" class="layui-btn layui-btn-primary">重置</button>
 					    </div>
 					  </div>
@@ -109,7 +109,9 @@
     },
  
     methods: {
-     
+     tj(){
+		 alert('a')
+	 }
     },
  };
    
