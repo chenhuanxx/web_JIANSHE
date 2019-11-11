@@ -34,28 +34,27 @@
 						<dt><img src="../images/school1.jpg" width="100%"/></dt>
 						<dd>招生简章</dd>
 					</dl>
-					<ul>
-						<li><a href="../views/detailsPage.html">2019年国家奖学金评审会</a>
-					    			<img src="../images/new.png" height="25px"/>
-					    			<img src="../images/hot.png" height="25px"/>
-					    			<span>2019-10-10</span>
-					    		</li>
-					    		<li><a href="">2019年国家奖学金评审会</a><span>2019-10-10</span></li>
-					    		<li><a href="">2019年国家奖学金评审会</a><span>2019-10-10</span></li>
-					    		<li>我校召开2019年国家奖学金评审会<span>2019-10-10</span></li>
-					    		<li><a href="">2019年国家奖学金评审会</a><span>2019-10-10</span></li>
-					    		<li>我校召开2019年国家奖学金评审会<span>2019-10-10</span></li>
-					    		<li><a href="">2019年国家奖学金评审会</a><span>2019-10-10</span></li>
-					    		<li>我校召开2019年国家奖学金评审会<span>2019-10-10</span></li>
-					    		<li><a href="">2019年国家奖学金评审会</a><span>2019-10-10</span></li>
-					    		<li>我校召开2019年国家奖学金评审会<span>2019-10-10</span></li>
-					    		<li>我校校企合作课题获中华职教社课题成果二等奖<span>2019-10-10</span></li>
-					    		<li>我校校企合作课题获中华职教社课题成果二等奖<span>2019-10-10</span></li>
+					<ul >
+						<li v-for="(item ,index) in NoticeData" :key="index"><router-link :to="{path: 'listpage/xqy', query: {id: item.id}}">{{item.title}}</router-link> 
+								<img v-if="item.new==true" src="../images/new.png" />
+								<img v-if="item.hot==true" src="../images/hot.png" />
+								<span>{{item.publishTime}}</span>
+						</li>
 					</ul>
 					
-					
 				</div>
-				<div class="page" id="test1"></div>
+				<!-- @size-change="handleSizeChange" -->
+				<div class="page" id="test1">
+					<el-pagination 
+					background 
+					
+      				@current-change="handleCurrentChange"
+					layout="total,prev, pager, next"
+					prev-text="上一页"
+					next-text="下一页"
+					:total="total" 
+					:page-size="20">
+					</el-pagination></div>
 			</div>
 		</div>
 		
@@ -64,14 +63,50 @@
   export default {
      data() {
       return {
-       
-       
-
+			NoticeData:[],
+			total:20,
+			page:'1',
+			size:'20',
       };
-    },
+	},
+	created(){
+		this.Notice();
+		
+	},
  
     methods: {
-     
+		
+     Notice(){
+				let list={
+					"currentPage":this.page,
+					"pageSize":this.size,
+					"type":'articleEnrollGuide'
+				} 
+				this.$http.post("/app/article/list",list).then((response) => {
+					let arr = response.data.page.records; 
+					for(var i =0;i<arr.length;i++){
+						let datatime = arr[i].publishTime;
+						arr[i].publishTime = datatime.substring(0, datatime.length - 8);
+					}
+					this.NoticeData =  arr;
+					// this.total = response.data.page.size ;
+					this.total =  response.data.page.total ;
+				}) 
+
+			},
+
+			//  handleSizeChange(val) {
+			// 	 this.page= val;
+			// 	 this.Notice()
+			// 	console.log(`每页 ${val} 条`);
+			// },
+			handleCurrentChange(val) {
+				this.page= val;
+				 this.Notice()
+				console.log(`当前页: ${val}`);
+			}
+
+
     },
  };
    

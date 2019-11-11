@@ -67,6 +67,7 @@ border-radius:2px
 
 
 .list{
+	min-height: 600px;
 	width: 740px;float: right;background: #fafaf9;border: 1px solid #e6e6e6;
 	overflow:hidden;border-radius:2px ;padding-bottom: 20px;
 }
@@ -75,7 +76,7 @@ border-radius:2px
 .list-1 dl dd{padding: 10px;}
 
 
-.list-1{padding: 10px;}
+.list-1{padding: 10px;min-height: 550px;}
 .list-1 ul{overflow: hidden;width: 98%;margin: 0 auto;}
 .list-1 ul li{
 	font-size: 12px;

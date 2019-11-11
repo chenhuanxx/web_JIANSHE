@@ -18,7 +18,7 @@ export default new Router({
     {path:'/lxwm',name:'联系我们',component: () => import('@/components/lxwm.vue'),},
 
 
-    {path:'/xqy',name:'详情页',component: () => import('@/components/xqy.vue'),},
+    {path:'/listpage/xqy',name:'/listpage/xqy',component: () => import('@/components/listpage/xqy.vue'),},
     {path:'/search',name:'搜索页',component: () => import('@/components/search.vue'),},
   ]
 })
