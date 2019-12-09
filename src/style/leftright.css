@@ -14,13 +14,26 @@
 	color: white;
 	display: block;
 }
-.zszx-left dl{
-	text-align: center;overflow: hidden;margin-bottom: 20px;
+.wxtp dl{
+	text-align: center;overflow: hidden;margin-bottom: 10px;
 }
-.zszx-left dl dt{
-	width: 100px;margin: 0 auto;}
-.zszx-left dl dd{
-	padding: 10px;}	
+.wxtp dl dt{ margin: 0 auto;}
+
+.wxtp dl dt img{ width: 120px;}
+.wxtp dl dd{font-size: 12px; }	
+
+
+	/* 电话 */
+	.zszx-left .phone{text-align: left;margin-bottom: 0px;overflow: hidden;margin-top: 10px;}
+	.zszx-left .phone dt{    height: 85px;
+    line-height: 85px;
+    width: 30px;}
+	.zszx-left .phone dd ul{padding: 0px;}
+.adds{overflow:hidden;margin-top: 10px;}
+.dzl1{width: 30px;}
+.dzl{width: 180px;}
+
+
 .school-zszx-left {
 	width: 250px;float: left;background: #fafaf9;border: 1px solid #e6e6e6;
 border-radius:2px ;
@@ -43,21 +56,18 @@ border-radius:2px ;
 	background: #0893b0;width: 210px;margin: 0 auto;height: 40px;line-height: 40px;border: none;color: white;
 }
 
-.zszx-left {
-	width: 250px;float: left;background: #fafaf9;border: 1px solid #e6e6e6;
-border-radius:2px 
+.zszx-left { width: 250px;float: left;background: #fafaf9;border: 1px solid #e6e6e6; border-radius:2px 
 }
-.zszx-left  ul {padding: 20px;overflow: hidden;}
+.zszx-left  ul {padding: 15px;overflow: hidden;}
 .zszx-left ul  strong{
 	color:#da312b ;
 	font-size: 16px;
 }
-.zszx-left  ul  p{
+.qqlx{
 	padding-top: 20px;font-size: 14px;
 }
 .zszx-left  ul  li{
-	font-size: 14px;
-	line-height: 40px;
+	font-size: 14px;padding-top: 10px;
 }
 .zszx-left ul  li button{
 	background: #0893b0;width: 210px;margin: 0 auto;height: 40px;line-height: 40px;border: none;color: white;

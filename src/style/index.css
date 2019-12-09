@@ -3,7 +3,7 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
 strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, 
 tfoot, thead, tr, th, td ,textarea,input { margin:0; padding:0;  }
 address,cite,dfn,em,var, i {font-style:normal;}
-body {font-size: 14px;  color: #333; }
+body {font-size: 14px;  color: #333333; }
 table { border-collapse:collapse; border-spacing:0; }
 h1, h2, h3, h4, h5, h6, th { font-size: 100%; font-weight: normal; }
 button,input,select,textarea{font-size:100%;}
@@ -73,10 +73,11 @@ ul, ol { list-style: none; }
     height: 28px!important; 
     line-height: 28px!important; 
     margin: 0 -1px 5px 0!important; 
-    background-color: #fff!important;  
+    background-color: #ffffff!important;  
     font-size: 12px!important; }
+.fl{float: left;}
 
-
+.fr{float: right;}
 
 /*导航*/
 .header{
@@ -117,15 +118,9 @@ ul, ol { list-style: none; }
 /*轮播*/
 #lunbo img{height: 280px;}
 
-/*关键字搜索*/
-.search-gjz{ margin-top: 40px;}
-.search-gjz p{float: left;height: 30px;line-height: 30px;padding-right: 20px;font-size: 14px;}
-.search-gjz input{height: 30px ;line-height: 30px;float: left;width: 250px;font-size: 12px;}
-.search-gjz button{height: 30px ;line-height: 30px;float: left;width: 80px;font-size: 12px;}
-.search-gjz a{color: white;}
 
 /*招生方式*/
-.zsfs{width: 1000px; margin: 20px auto;overflow: ;}
+.zsfs{width: 1000px; margin: 20px auto;overflow: hidden;}
 .zsfs ul li {    width: 178px;
     background-image: url(../images/zs-bg.png);
     background-size: cover;
@@ -151,67 +146,89 @@ ul, ol { list-style: none; }
 	height: 360px;border-radius:2px ;
 }
 
-.layui-tab-title li{font-weight: 400;font-size: 14px;}
-.layui-tab-title li span a{font-size: 12px;}
-.layui-tab-title li span a:hover{color: #007DDB;}
-.layui-tab {
-     margin: 0px 0; 
-    text-align: left!important;
-}
+ .tz-tit{height: 40px;line-height: 40px; border-bottom:1px solid #e6e6e6 ;overflow: hidden;}
+ .tz-tit span{font-size: 12px;}
+ .tz-tit span a:hover{color:  #007DDB;}
+
+ .school-zszx .zszxzx{height: 30px;  border-bottom: 1px solid #e6e6e6;}
 .tzgg-news ul{overflow: hidden;width: 98%;margin: 0 auto;}
+.tzgg-news .iconfont{font-size: 12px;}
 .tzgg-news ul li{
-	height: 30px ;line-height: 30px;border-bottom: 1px dashed darkgrey;font-size: 12px;
+	height: 30px ;line-height: 30px;border-bottom: 1px dashed darkgrey;font-size: 12px;overflow: hidden;white-space: nowrap;text-overflow: ellipsis;
 }
+ 
+ 
 .tzgg-news ul li img{
 	height: 15px;
+}
+.tzgg-news ul li a {
+    padding-left: 5px;
 }
 .tzgg-news ul li a:hover{
 	color: #007DDB;
 }
-.tzgg-news ul li span{
+/* .tzgg-news ul li span{
 	float: right;
-}
+} */
+
+/*关键字搜索*/
+.search-gjz{ overflow: hidden;height: 40px;width: 100%;}
+.search-gjz p{float: left;height: 30px;line-height: 30px;padding-right: 20px;font-size: 14px;}
+.search-gjz input{height: 30px ;line-height: 30px;float: left;width: 246px;font-size: 12px;}
+.search-gjz button{height: 30px ;line-height: 30px;float: left; font-size: 12px;}
+.search-gjz a{color: white;}
 /*招生咨询*/
+.tzggsx{border-left:3px solid #32994a ;height: 20px;padding-left:15px ;line-height: 20px;margin-top: 10px;width: 200px;margin-left: 10px;}
+/* 电话 */
+.school-zszx .phone{text-align: left;margin-bottom: 0px;overflow: hidden ;}
+.school-zszx .phone dt{    height: 85px;line-height: 85px;width: 30px;}
+.school-zszx .phone dd ul{padding: 0px;}
+.adds{overflow:hidden;margin-top: 10px;}
+.school-zszx .dzl1{width: 30px;}
+.school-zszx .dzl{width: 230px;}
+
+
+.school-zszx1{height: 440px; width: 100%;float: left;overflow: hidden;}
 .school-zszx{
-	width: 250px;float: left;background: #fafaf9;border: 1px solid #e6e6e6;
-border-radius:2px ;height: 430px;
+	background: #fafaf9;border: 1px solid #e6e6e6; width: 100%;
+border-radius:2px ;height: 390px;margin-top: 10px;clear: both;
 }
-.school-zszx ul {padding: 20px;overflow: hidden;}
+.school-zszx ul {padding: 0px 20px;overflow: hidden;}
 .school-zszx ul  strong{
 	color:#da312b ;
 	font-size: 16px;
 }
-.school-zszx ul  p{
-	padding-top: 20px;font-size: 14px;
+.school-zszx ul  p{ font-size: 14px;
 }
 .school-zszx ul  li{
 	padding-top: 10px;font-size: 14px;
-	line-height: 40px;
+	 
 }
 .school-zszx ul  li button{
 	background: #0893b0;width: 210px;margin: 0 auto;height: 40px;line-height: 40px;border: none;color: white;
 }
 .school-xyfc{
-	border: 1px solid #e6e6e6;
-	width: 715px;float: right;padding: 10px;
+	border: 1px solid #e6e6e6; 
+    padding: 0px 10px 10px 10px;
 	border-radius:2px ;
-	height: 410px;
+	overflow: hidden;
 }
 .school-xyfc  strong{
 	color:#da312b ;
 	font-size: 16px;
 }
 .school-xyfc .school-xyfc-tp dl{
-	width: 31.333%;float: left;
-	padding:0px 1%;overflow: hidden;
+	width: 23%;float: left;
+	padding:10px 1%;overflow: hidden;
 }
 .school-xyfc .school-xyfc-tp dl dt{
-	border: 1px solid #007DDB;
+    border: 1px solid darkcyan !important;
+    border-radius: 4px;
 	overflow: hidden;
 	text-align: center;
-	line-height:160px ;
+	line-height:225px ;
 	width: 100%;
-	height: 160px;
+	height: 225px;
 }
 .school-xyfc span a{font-size: 12px;}
 .school-xyfc span a:hover{color: #007DDB;}
@@ -225,6 +242,13 @@ border-radius:2px ;height: 430px;
 .school-xyfc .school-xyfc-tp dl  dd{
 	height: 30px;line-height: 30px;
 }
+.wxlist{width: 260px;margin: 20px auto;}
+.wxtp1{padding: 5px;}
+/* 新闻 */
+.news-list-index{
+    width: 738px;float: left;margin-left: 10px;overflow: hidden;
+}
+.news-list1{width: 99%; border: 1px solid #e6e6e6 ;height: 430px;border-radius:2px ;background: #fafaf9;}
 /*友情链接*/
 .xylblj .xylblj-tit {
 	width: 100%;overflow: hidden;border-bottom:5px solid #32994a;
@@ -235,13 +259,14 @@ border-radius:2px ;height: 430px;
 	
 }
 .xylblj ul li a{
-	height: 20px;
-	float: left;
+	height: 20px; 
 	width:140px ;
-	overflow: hidden;　　　　　　　　/*对超出容器的部分强制截取，高度不确定则换行*/
-    text-overflow: ellipsis;　　　　/*显示省略符号来代表被修剪的文本。*/
-    white-space: nowrap;　　　　　　/*禁止换行*/
-	float: left;margin: 10px;
+	overflow: hidden; 
+    /* text-overflow:ellipsis;　　 
+    white-space:nowrap;　　　　　  */
+    float:left;
+    margin:10px;
+
 } 
 .xylblj ul li a:hover{
 	color: #0893b0;
