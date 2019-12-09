@@ -29,14 +29,14 @@
                     <ul class="center">
                         <li  > <router-link to="/">首页</router-link></li>
                         <li  > <router-link to="/tzgg">通知公告</router-link></li>
-                        <li  > <router-link to="/zyjs">专业介绍</router-link></li>
+                        <li  > <router-link to="/zyjs">学院介绍</router-link></li>
                         <li  > <router-link to="/zsjz">招生简章</router-link></li>
                         <li  > <router-link to="/zsjh">招生计划</router-link></li>
                         <li  > <router-link to="/lqcx">录取查询</router-link></li>
                         <li  > <router-link to="/xyfc">校园风采</router-link></li>
                         <li  > <router-link to="/bdzn">报道指南</router-link></li>
                         <li  > <router-link to="/lxwm">联系我们</router-link></li> 
-                        <li  > <a target="_blank" href="http://www.siso.edu.cn/">学院首页</a></li>
+                        <li  > <a target="_blank" href="http://www.siso.edu.cn/">学校首页</a></li>
                     </ul>
                 </div>
        </div>

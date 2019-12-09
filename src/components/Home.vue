@@ -21,19 +21,9 @@
 
       <div class="center">
         	<div class="lqcx fl" style="margin-top: 20px;">
-		        	<a href="../views/admissionInquiry.html" title="请输入您的身份证号码查询"><img src="../images/lqcx.png"  width="400px"/></a> 
+		        	<router-link to="/lqcx" title="请输入您的身份证号码查询"><img src="../images/lqcx.png" height="100px" width="1000px"/> </router-link> 
 		      </div>
-        	<div class="fr search-gjz" >
-        		<form class="layui-form" action="">
-        			<p>关键字搜索:</p>
-        		 	<input type="text" name="title" required  lay-verify="required" placeholder="请输入关键字" autocomplete="off" class="layui-input">
-        			<button type="button" class="layui-btn" lay-submit lay-filter="formDemo" style="background: #00a0e9;" >
-				  		<img src="../images/search-ico.png" width="20px"/>
-				  		<a href="../views/searchList.html">搜索</a>
-					</button>
-        			<p></p>
-        		</form>
-        	</div>
+        	
 
       </div>
 
@@ -49,7 +39,7 @@
 	        		</li>
 	        		<i><img src="../images/jt2.png"/></i>
 	        		<li>
-	        			<router-link to="/zyjs">对口单招</router-link> 
+	        			<router-link to="/zyjs">中职招生</router-link> 
 	        		</li>
 	        		<i><img src="../images/jt3.png"/></i>
 	        		<li>
@@ -66,64 +56,156 @@
 
         <div class="center ">
         		<div class="fl school-sp">
-        			<!-- <video style="width:100%; height:100%; object-fit: fill"  poster="../images/about2.png"  controls="controls" muted autoplay="autoplay">
-					    <source :src="vcrvideo" type="video/mp4" >
-					 </video> -->
-					 <video style="width:100%; height:100%; object-fit: fill"  poster="../images/about2.png"  controls="controls" muted autoplay="autoplay">
+        			<video style="width:100%; height:100%; object-fit: fill"  poster="../images/about2.png"  controls="controls" muted autoplay="autoplay">
+								<source :src="vcrvideo" type="video/mp4" >
+							</video>
+					<!-- <video style="width:100%; height:100%; object-fit: fill"  poster="../images/about2.png"  controls="controls" muted autoplay="autoplay">
 					    <source src="../video/wbxy.mp4" type="video/mp4" >
-					</video>
+					</video> -->
 					
 	        	</div>
 	        	
 	        	<div class="fl school-tzgg">
-					 <el-tabs v-model="activeName" type="card" @tab-click="handleClick">
-						<el-tab-pane label="通知公告" name="first" class="tzgg-news">
+					<div class="tz-tit">
+						<p class="tzggsx fl">通知公告</p>
+						<span class="fr">
+							<router-link to="/tzgg">查看更多>></router-link>
+						</span>
+					</div>
+					<div  class="tzgg-news">
 							<ul >
-					    		<li v-for="(item ,index) in NoticeData" :key="index"><router-link :to="{path: 'listpage/xqy', query: {id: item.id}}">{{item.title}}</router-link> 
+					    		<li v-for="(item ,index) in NoticeData" :key="index"> 
+									<router-link :to="{path: 'listpage/xqy', query: {id: item.id}}"> {{item.title  | ellipsis}}</router-link> 
 					    			<img v-if="item.new==true" src="../images/new.png" />
 					    			<img v-if="item.hot==true" src="../images/hot.png" />
-					    			<span>{{item.publishTime}}</span>
+					    			<span class="fr">{{item.publishTime}}</span>
 					    		</li>
 					    	</ul>
-						</el-tab-pane>
-						<el-tab-pane label="招生计划" name="second" class="tzgg-news" >
-					    	<ul >
-					    		<li v-for="(item ,index) in PlaningData" :key="index"><router-link :to="{path: 'listpage/xqy', query: {id: item.id}}">{{item.title}}</router-link> 
-					    			<img v-if="item.new==true" src="../images/new.png" />
-					    			<img v-if="item.hot==true" src="../images/hot.png" />
-					    			<span>{{item.publishTime}}</span>
-					    		</li>
-					    	</ul> 
-						</el-tab-pane> 
-					</el-tabs>
+					</div>
 	        	</div>
         </div>
 
 
         <div class="center mar-t-2">
-        		<div class="school-zszx">
-        			<ul>
-        				<strong>招生咨询</strong>
-        				<p>招生咨询qq : 
-        					<a target="_blank" href="http://wpa.qq.com/msgrd?v=3&uin=1276520&site=qq&menu=yes" id="udesk-feedback-tab" title="欢迎您前来咨询">
-        						1276520 <img border="0" src="../images/group.png" alt="加入QQ群" title="加入QQ群" width="65px">
-        					</a>
-        				</p>
-        				<li>咨询电话1 :   0512-62933888</li>
-        				<li>咨询电话2 :   0512-62932251</li>
-        				<li>咨询电话3 :   0512-62932092</li>
-        				<li>学校地址 : 江苏省苏州独墅湖科教创新区若水路99号</li>
-        				<!--<li>
-        					<button>各地招生咨询电话</button>
-        				</li>-->
-        			</ul>
-        		
-	        	</div>
-	        	<div class="school-xyfc">
-	        		<strong>校园风采</strong>
-	        		<span class="fr">
-	        			<router-link to="/xyfc">查看更多>></router-link>
-	        		</span>
+			<el-row :gutter="20">
+				<el-col :span="8">
+					<div class="fr search-gjz" >
+						<form class="layui-form" action=""> 
+							<input type="text" v-model="title"    placeholder="请输入关键字"   class="layui-input">
+							<button type="button" class="layui-btn"  style="background: #00a0e9;"  @click="search">
+											<img src="../images/search-ico.png" width="10px"/>
+											  搜索 
+									</button> 
+						</form>
+					</div>
+
+					<div class="school-zszx">
+						<div class="zszxzx">
+							<p class="tzggsx" >招生咨询</p>
+
+						</div>
+						
+				
+						<ul  >
+	        				
+	        				<div class="qqlx"><span class="iconfont icon-qq1"></span> 
+	        					<a target="_blank" href="http://wpa.qq.com/msgrd?v=3&uin=1276520&site=qq&menu=yes" id="udesk-feedback-tab" title="欢迎您前来咨询" style="padding-left: 10px;">
+	        						招生咨询qq : {{enrollQq}} <img border="0" src="./../images/group.png" alt="加入QQ群" title="加入QQ群" width="65px" >
+	        					</a>
+	        				</div>
+							<dl class="phone">
+								<dt style="float:left">
+									<span class="iconfont icon-dianhua"></span>
+								</dt>
+								<dd class="fl">
+									<ul>
+										<li>咨询电话1 ：{{enrollTel1}} 	</li>
+										<li>咨询电话1 ：{{enrollTel2}} 	</li>
+										<li>咨询电话1 ：{{enrollTel3}} 	</li>
+										 
+									</ul>
+								</dd>
+							</dl>
+
+	        				 <div class="adds">
+								 <p class="fl dzl1"><span class="iconfont icon-dizhi1"></span> </p>  <p class="fl dzl">学院地址 ：{{schoolAddress}}</p> 
+
+							 </div>
+	        				
+								<!-- 江苏省苏州独墅湖科教创新区若水路99号 -->
+								 
+
+	        			</ul>
+							<div class="wxlist">
+								<div class="fr wxtp1 ">
+									<img src="../images/wxewm.png" alt="" width="120px">
+								</div>
+								<div  class="fr  wxtp1">
+									<img src="../images/QQewm.png" alt="" width="120px">
+								</div>
+
+							</div>
+					</div>
+
+				</el-col>
+				<el-col :span="8">
+					<div class="news-list1">
+						<div class="tz-tit">
+							<p class="tzggsx fl">招生计划</p><span class="fr">
+							<router-link to="/zsjh">查看更多>></router-link>
+						</span>
+						</div>
+						<div class="tzgg-news" >
+								<ul >
+									<li v-for="(item ,index) in PlaningData" :key="index"> 
+										<router-link :to="{path: 'listpage/xqy', query: {id: item.id}}"> {{item.title  | ellipsis1}}</router-link> 
+										<img v-if="item.new==true" src="../images/new.png" />
+										<img v-if="item.hot==true" src="../images/hot.png" />
+										<span class="  fr">{{item.publishTime}}</span>
+									</li>
+								</ul> 
+							
+						</div>
+					</div>
+
+				</el-col>
+				<el-col :span="8">
+					<div class="news-list1">
+						<div class="tzgg-news" >
+								<div class="tz-tit">
+									<p class="tzggsx fl">招生简章</p><span class="fr">
+									<router-link to="/zsjz">查看更多>></router-link>
+								</span>
+								</div>
+
+								<ul >
+									<li v-for="(item ,index) in GuideData" :key="index"> 
+										<router-link :to="{path: 'listpage/xqy', query: {id: item.id}}"> {{item.title | ellipsis2}}</router-link> 
+										<img v-if="item.new==true" src="../images/new.png" />
+										<img v-if="item.hot==true" src="../images/hot.png" />
+										<span class="  fr" >{{item.publishTime}}</span>
+									</li>
+
+									 
+								</ul>
+						</div>
+					</div>
+
+				</el-col>
+
+			</el-row>
+			  
+        </div>
+		<div class="center mar-t-2">
+				<div class="school-xyfc">
+					<div style="overflow: hidden; height: 30px;line-height: 30px;">
+						<p class="tzggsx fl">校园风采</p>
+						<span class="fr">
+							<router-link to="/xyfc">查看更多>></router-link>
+						</span>
+
+					</div>
+	        		
 	        		<div class="school-xyfc-tp">
 	        			<dl v-for ="(item,i) in imglist" :key="i">
 	        				<dt><img :src='item.url'/></dt>
@@ -132,7 +214,6 @@
 	        		</div>
 	        	</div>
         </div>
-        
         <div class="center mar-t-2">
         	<div class="xylblj">
         		<div class="xylblj-tit">
@@ -141,7 +222,7 @@
         		<ul>
 					<li v-for="(item ,index) in linkINlist" :key="index">
 						<a target="_blank" :href="item.url"  rel="noopener noreferrer" :title="item.name">{{item.name}}</a>
-						</li>
+					</li>
 					<!-- <a :href="getURL(url)" target="_blank" rel="noopener noreferrer">{{url}}</a> -->
         			<!-- <li><a target="_blank" href="http://bpo.siso.edu.cn/" title="商学院">商学院</a></li>
         			<li><a target="_blank" href="http://dco.siso.edu.cn/" title="人文艺术学院">人文艺术学院</a></li>
@@ -160,7 +241,7 @@
         		</div>
         		<ul>
 					<li v-for="(item ,index) in linkOutlist" :key="index">
-						<a target="_blank" :href="item.url" rel="noopener noreferrer" title="item.name">{{item.name}}</a>
+						<a target="_blank" :href="item.url" rel="noopener noreferrer" :title="item.name">{{item.name}}</a>
 					</li>
         			<!-- <li><a target="_blank" href="http://www.moe.gov.cn/" title="国家教育部">国家教育部</a></li>
         			<li><a target="_blank" href="https://www.tech.net.cn/" title="中国高职高专教育网">中国高职高专教育网</a></li>
@@ -179,6 +260,33 @@
 </template>
 <script>
   export default {
+
+	  		filters: {
+				ellipsis (value) {
+					if (!value) return ''
+						if (value.length > 45) {
+							return value.slice(0,45) + '...'
+						}
+					return value
+				} ,
+				ellipsis1 (value) {
+					if (!value) return ''
+					if (value.length > 20) {
+						return value.slice(0,20) + '...'
+					}
+					return value
+				},
+				ellipsis2 (value) {
+					if (!value) return ''
+					if (value.length > 20) {
+						return value.slice(0,20) + '...'
+					}
+					return value
+				}
+			},
+			 
+
+
     data() {
       return {
 		activeName: 'first',
@@ -187,19 +295,40 @@
 		host:'http://47.92.84.126',
 		id:'',
 		idtype:"",
-		NoticeData:[],
-		PlaningData:[],
+		NoticeData:[
+			 
+		],
+		PlaningData:[ ],
+		GuideData:[
+			 
+		],
 		linkINlist:[],
 		linkOutlist:[],
-      };
+		title:'',
+
+			enrollQq:'',
+			enrollTel1:'',
+			enrollTel2:'',
+			enrollTel3:'', 
+			schoolAddress:'',
+
+			
+	  };
+	  
 	},
 	created(){  
-			this.Notice();
+			
 			this.getVideo();
+
+			 this.Notice();
+			this.Guide();
+			this.Planing();
+			
+			this.getdata();
+
 			this.gettp();
 			this.getlinkIn();
 			this.getlinkOut();
-			// this.Planing();
 		   
          },
          methods:{
@@ -223,8 +352,10 @@
 					for(var i =0;i<arr.length;i++){
 						let datatime = arr[i].publishTime;
 						arr[i].publishTime = datatime.substring(0, datatime.length - 8);
+  
 					}
 					this.NoticeData =  arr;
+ 
 				}) 
 
 			},
@@ -244,6 +375,22 @@
 				}) 
 
 			},
+			//招生简章
+			Guide(){
+				let list={
+					type:'articleEnrollGuide'
+				} 
+				this.$http.post("/app/article/list",list).then((response) => {
+					let arr = response.data.page.records; 
+					for(var i =0;i<arr.length;i++){
+						let datatime = arr[i].publishTime;
+						arr[i].publishTime = datatime.substring(0, datatime.length - 8);
+					}
+					this.GuideData =  arr; 
+					 
+				}) 
+
+			},
 			//视频
 			getVideo(){
 				this.$http.get("/app/vcrvideo/list").then((response) => {
@@ -251,6 +398,19 @@
 				}) 
 
 			},
+			//质询信息
+			getdata(){
+			this.$http.get("/app/enrollconsult/list" ).then((response) => {
+
+					let listdata = response.data.enrollconsultData;
+					 this.enrollQq=listdata.enrollQq
+					this.enrollTel1=listdata.enrollTel1
+					this.enrollTel2=listdata.enrollTel2
+					this.enrollTel3=listdata.enrollTel3
+					this.schoolAddress=listdata.schoolAddress
+					 
+				}) 
+		},
 			 //校园风采图片
             gettp(){
                  this.$http.get("/app/schoolelegant/index/list").then((response) => {
@@ -274,6 +434,7 @@
 				}) 
 
 			} ,
+			//外链
 			getlinkOut(){ 
                  this.$http.get("/app/linkinfo/list",{params: { type:'linkTypeOut'}}).then((response) => {
 					 let arr = response.data.linkInfoList ;
@@ -284,6 +445,11 @@
 				}) 
 
 			} ,
+			// 搜索
+			search(){
+				this.$router.push({ path:'/search', query: {title:this.title}}) 
+
+			},
 			
 	}
   };

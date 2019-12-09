@@ -2,30 +2,7 @@
   <div class="center mar-t-2">
 				 
 					
-					<div class="zszx-left">
-						<ul>
-	        				<strong>招生咨询</strong>
-	        				<p>招生咨询qq : 
-	        					<a target="_blank" href="http://wpa.qq.com/msgrd?v=3&uin=1276520&site=qq&menu=yes" id="udesk-feedback-tab" title="欢迎您前来咨询">
-	        						1276520 <img border="0" src="../images/group.png" alt="加入QQ群" title="加入QQ群" width="65px">
-	        					</a>
-	        				</p>
-	        				<li>咨询电话1 :   0512-62933888</li>
-	        				<li>咨询电话2 :   0512-62932251</li>
-	        				<li>咨询电话3 :   0512-62932092</li>
-	        				<li>学校地址 : 江苏省苏州独墅湖科教创新区若水路99号</li>
-	        				
-	        			</ul>
-	        			<dl>
-							<dt> <img src="../images/wxewm.png" alt="" width="100px"></dt>
-							<dd>关注官方微信公众号</dd>
-						</dl>
-						<dl>
-							<dt><img src="../images/QQewm.png" alt="" width="100px"></dt>
-							<dd>官方咨询QQ群</dd>
-						</dl>
-						
-					</div> 
+				<app-Left></app-Left>
 	        	
         			
 			<div class="fl list">
@@ -45,7 +22,7 @@
 					prev-text="上一页"
 					next-text="下一页"
 					:total="total" 
-					:page-size="16">
+					:page-size="6">
 					</el-pagination> 
 				</div>
 			</div>
@@ -53,14 +30,19 @@
 		
 </template>
 <script>
+ import Left from './left/Left.vue';
+ 
   export default {
+	  components:{
+			"app-Left":Left,
+		},
      data() {
       return {
 	   host:'http://47.92.84.126',
 	   imglist:[],
        total:1,
 		page:'1',
-		size:'16',
+		size:'6',
 
       };
 	},

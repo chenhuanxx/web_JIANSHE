@@ -1,113 +1,96 @@
 <template>
   <div class="center mar-t-2">
-				 
-					 
-	        	
-        <div class="search-lqxx">			  
-					<!-- <el-form    :model="ruleForm" label-width="120px" ref="ruleForm" :rules="rules" > -->
-            
-						<!-- <div class="form-tab">
-              <div class="layui-form-item" >
-						    <label class="layui-form-label" prop="sfz">身份证号:</label>
-						    <div class="layui-input-block">
-						      <input type="text" v-model="ruleForm.sfz"   placeholder="请输入身份证号"   class="layui-input">
-						    </div>
-						  </div>
-              <div class="layui-form-item">
-						    <label class="layui-form-label"  prop="name">姓名:</label>
-						    <div class="layui-input-block">
-						      <input type="text" v-model="ruleForm.name"   placeholder="请输姓名"   class="layui-input">
-						    </div>
-						  </div> 
-              <div class="layui-form-item">
-                <div class="layui-input-block"> 
-                    <el-button class="layui-btn" type="primary" @click="tj" >立即提交</el-button>
-                    <el-button @click="resetForm('ruleForm')">重置</el-button> 
-                </div>
-              </div>
-              
-            </div> -->
-					<!-- </el-form> -->
-      </div>
+    <div class="search-lqxx">
+    		<el-form    :model="ruleForm" label-width="120px" ref="ruleForm" :rules="rules" :inline="true">
+            <el-form-item label="身份证号:" prop="idCard">
+              <el-input v-model="ruleForm.idCard" placeholder="请输入身份证号" clearable/>
+            </el-form-item>
+            <el-form-item label="姓名："  prop="name">
+               <el-input v-model="ruleForm.name" placeholder="请输入姓名" clearable/>
+            </el-form-item>
 
+            <el-form-item>
+              <el-button class="layui-btn" type="primary" @click="onSubmit">立即提交</el-button>
+              <el-button @click="resetForm('ruleForm')">重置</el-button>
+            </el-form-item>
+
+        </el-form>
+    </div>
 
       <div style="min-height: 100px;width: 100%;">
-					<div id="lqxx">
-						<p style="color: #0893b0;">恭喜您已被我校录取；您的录取信息如下！</p>
+					<div v-if="lqxx"  >
+						<p style="color: #0893b0;font-size: 14px;">恭喜您已被我校录取；您的录取信息如下！</p>
 					 </div>
-					 <div id="lqxx1">
-						<p style="color: red;">恭喜您已被我校录取；您的录取信息如下！</p>
+					 <div v-if="lqxx1">
+						<p style="color: red;font-size: 14px;">抱歉！未查询到您的录取信息！</p>
 					 </div>
-					 
-					 <div id="tab-show">
-							 
-						<table class="layui-table" >
-						  <colgroup>
-						    <col width="150">
-						    <col width="200">
-						    <col>
-						  </colgroup>
-						  <thead>
-						    <tr>
-						      <th>录取编号</th>
-						      <th>姓名</th>
-						      <th>身份证号</th>
-						      <th>考试号</th>
-						      <th>录取学院</th>
-						      <th>录取专业</th>
-						      <th>招考类型</th>
-						    </tr> 
-						  </thead>
-						  <tbody>
-						   <tr>
-						      <th>123</th>
-						      <th>chenhuan</th>
-						      <th>421024199410061211</th>
-						      <th>1234567890</th>
-						      <th>人文艺术学院</th>
-						      <th>影视动画专业</th>
-						      <th>自主招生</th>
-						    </tr> 
-						  </tbody>
-						</table>
-					</div> 
+					 <div v-if="lqxx">
+              <el-table ref="multipleTable" :data="tableData"   style="width: 100%"    border :header-cell-style="{background:'#e6e6e6;',color:'#606266'}">
+                <el-table-column prop="enrollNo" label="录取编号"   align="center"/>
+                <el-table-column prop="name" label="姓名" align="name"/>
+                <el-table-column prop="idCard" label="身份证号" align="center"  />
+                <el-table-column prop="college" label="录取学院" align="center"  />
+                <el-table-column prop="major" label="录取专业" align="center"/>
+                <el-table-column prop="type" label="招考类型" align="center"/>
+                <el-table-column prop="enrollYear" label="入学年份" align="center"/>
+              </el-table>
+					</div>
 			</div>
 		</div>
-		
+
 </template>
 <script>
+ import Left from './left/Left.vue';
+ 
   export default {
+	  components:{
+			"app-Left":Left,
+		},
      data() {
       return {
-        ruleForm:{},
+        lqxx:false,
+        lqxx1:false,
+        ruleForm:{
+          idCard :'',
+          name :'',
+        },
+
         rules: {
-          sfz: [
-            { validator: validatePass, trigger: 'blur' }
+          idCard: [
+            { required: true, message: '请输入身份证号码', trigger: 'blur'}
           ],
           name: [
             { required: true, message: '请输入姓名', trigger: 'blur' }
-          ], 
-        }
-       
-       
+          ],
+        },
+        tableData:[  ],
+
 
       };
     },
- 
+
     methods: {
-     tj(){ 
-  	
-          if("cc"=="cc"){
-              var sp = document.getElementById("lqxx");
-              sp.style.display="block";
-              var tabshow = document.getElementById("tab-show");
-              tabshow.style.display="block";      
-          }else{
-              var sp1 = document.getElementById("lqxx1");
-              sp1.style.display="block";
-          }	
-  	
-        alert('a')
+     onSubmit(){
+       this.$refs.ruleForm.validate((valid) => {
+                  if (valid) {
+                       this.$http.post("/app/enrollinfo/list", this.ruleForm ).then((response) => {
+                         let arrlist = response.data.enrollinfoList;
+                         if(arrlist != ''){
+                           this.tableData = response.data.enrollinfoList;
+                           this.lqxx=true;
+                           this.lqxx1=false;
+
+                         }else{
+                           this.lqxx1=true;
+                           this.lqxx=false;
+
+                       }
+                    })
+                 } else {
+                   return false;
+                 }
+        });
+
       },
 
       resetForm(formName) {
@@ -116,9 +99,9 @@
 
     },
  };
-   
+
 </script>
- 
+
 
 <style>
   #lqxx{display: none;clear: both;overflow: hidden;}
