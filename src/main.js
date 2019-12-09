@@ -6,11 +6,17 @@ import router from './router'
 
 
 import axios from 'axios'
-axios.defaults.baseURL = 'http://47.92.84.126/siso-enroll/'; // 关键步骤–填写后台请求统一的地址
+axios.defaults.baseURL =  process.env.BASE_API; // 关键步骤–填写后台请求统一的地址
 axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded';
 Vue.config.productionTip = false;
 Vue.prototype.$http = axios; 
-
+// router.beforeEach((to, from, next) => {
+//   /* 路由发生变化修改页面title */
+//   if (to.meta.title) {
+//     document.title = to.meta.title
+//   } 
+//   router.addRoutes(routes)
+// })
 Vue.config.productionTip = false
  
 import ElementUI from 'element-ui'
@@ -22,6 +28,7 @@ import './style/admin.css'
 import './style/index.css'
 import './style/leftright.css'
 import './style/layui.css'
+import './icon/iconfont.css'
  
 
 /* eslint-disable no-new */
