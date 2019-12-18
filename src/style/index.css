@@ -47,7 +47,8 @@ ul, ol { list-style: none; }
 .font-22{font-size: 22px}
 .font-18{font-size: 18px}
 .font-16{font-size: 16px}
-
+/* 浮动tel */
+.lxwmtp{position: fixed;right: 10px;top: 35%;z-index: 99;}
 
 .btn-prev{
 	border:1px  solid darkcyan !important; 

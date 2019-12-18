@@ -36,10 +36,14 @@
                         <li  > <router-link to="/xyfc">校园风采</router-link></li>
                         <li  > <router-link to="/bdzn">报道指南</router-link></li>
                         <li  > <router-link to="/lxwm">联系我们</router-link></li> 
-                        <li  > <a target="_blank" href="http://www.siso.edu.cn/">学校首页</a></li>
+                        <li  > <router-link to="/rmwd">热门问答</router-link></li>
+                        <!-- <li  > <a target="_blank" href="http://www.siso.edu.cn/">热门问答</a></li> -->
                     </ul>
                 </div>
-       </div>
+
+
+                <div class="lxwmtp"> <router-link to="/lxwm"><img src="../images/tel.png" width="100px" /></router-link></div>
+       </div> 
 </template>
 <script> 
      export default{

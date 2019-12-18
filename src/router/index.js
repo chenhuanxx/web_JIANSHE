@@ -40,6 +40,10 @@ export default new Router({
       title: '联系我们',
       keepAlive: false
     }},  
+    {path:'/rmwd',name:'热门问答',component: () => import('@/components/rmwd.vue'),meta:{
+      title: '热门问答',
+      keepAlive: false
+    }},  
 
 
     {path:'/listpage/xqy',name:'/listpage/xqy',component: () => import('@/components/listpage/xqy.vue'),},

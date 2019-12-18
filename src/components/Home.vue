@@ -16,9 +16,7 @@
 				  <h3><img src="../images/logo4.jpg" width="100%"/></h3>
 			    </el-carousel-item>
 			  </el-carousel>
-        </div>
-
-
+        </div> 
       <div class="center">
         	<div class="lqcx fl" style="margin-top: 20px;">
 		        	<router-link to="/lqcx" title="请输入您的身份证号码查询"><img src="../images/lqcx.png" height="100px" width="1000px"/> </router-link> 
@@ -149,8 +147,36 @@
 
 				</el-col>
 				<el-col :span="8">
-					<div class="news-list1">
-						<div class="tz-tit">
+					<div >
+						<el-tabs type="border-card" class="news-list1">
+
+							<el-tab-pane label="招生计划">
+								<div class="tzgg-news" >
+									<ul >
+										<li v-for="(item ,index) in PlaningData" :key="index"> 
+											<router-link :to="{path: 'listpage/xqy', query: {id: item.id}}"> {{item.title  | ellipsis1}}</router-link> 
+											<img v-if="item.new==true" src="../images/new.png" />
+											<img v-if="item.hot==true" src="../images/hot.png" />
+											<span class="  fr">{{item.publishTime}}</span>
+										</li>
+									</ul> 
+								
+								</div>
+							</el-tab-pane>
+							<el-tab-pane label="招生简章">
+								<div class="tzgg-news" >
+									<ul >
+										<li v-for="(item ,index) in GuideData" :key="index"> 
+											<router-link :to="{path: 'listpage/xqy', query: {id: item.id}}"> {{item.title | ellipsis2}}</router-link> 
+											<img v-if="item.new==true" src="../images/new.png" />
+											<img v-if="item.hot==true" src="../images/hot.png" />
+											<span class="  fr" >{{item.publishTime}}</span>
+										</li> 
+									</ul> 
+								</div>
+							</el-tab-pane>
+						</el-tabs>
+						<!-- <div class="tz-tit">
 							<p class="tzggsx fl">招生计划</p><span class="fr">
 							<router-link to="/zsjh">查看更多>></router-link>
 						</span>
@@ -165,7 +191,7 @@
 									</li>
 								</ul> 
 							
-						</div>
+						</div> -->
 					</div>
 
 				</el-col>
@@ -173,20 +199,20 @@
 					<div class="news-list1">
 						<div class="tzgg-news" >
 								<div class="tz-tit">
-									<p class="tzggsx fl">招生简章</p><span class="fr">
-									<router-link to="/zsjz">查看更多>></router-link>
+									<p class="tzggsx fl">校园传真</p><span class="fr">
+									<a href="http://www.siso.edu.cn/html/News7.htm" target="_blank">查看更多>></a>
 								</span>
 								</div>
 
 								<ul >
+									
 									<li v-for="(item ,index) in GuideData" :key="index"> 
 										<router-link :to="{path: 'listpage/xqy', query: {id: item.id}}"> {{item.title | ellipsis2}}</router-link> 
 										<img v-if="item.new==true" src="../images/new.png" />
 										<img v-if="item.hot==true" src="../images/hot.png" />
+										
 										<span class="  fr" >{{item.publishTime}}</span>
-									</li>
-
-									 
+									</li> 
 								</ul>
 						</div>
 					</div>
@@ -208,12 +234,37 @@
 	        		
 	        		<div class="school-xyfc-tp">
 	        			<dl v-for ="(item,i) in imglist" :key="i">
-	        				<dt><img :src='item.url'/></dt>
+	        				<dt  @click="selectGood($event,item)" v-if="item.type==0"><img :src='item.url'/></dt>
+							<dt  @click="selectGood($event,item)" v-if="item.type==1">
+								<video style="width:100%; height:100%; object-fit: fill"  poster="../images/about2.png"  controls="controls" muted autoplay="autoplay">
+									  <source :src='item.url' type="video/mp4" >  
+									
+								</video></dt>
 	        				<dd>{{item.name}}</dd>
 	        			</dl> 
 	        		</div>
 	        	</div>
         </div>
+
+
+
+			<!--遮罩层-->
+			<div class="mask" v-if="mask"></div>
+			
+			<!--弹出层-->
+			<div class="show_d"  v-if="show_d">
+				 <div class="qxan" @click="qxan"><img src="../images/quan.png" alt=""> </div>
+				<div class="xqtp">
+					<img :src="imgurl"  v-if=" typedata==0"/>  
+				</div>
+				 
+					<video   poster="../images/about2.png"  controls="controls" muted autoplay="autoplay" v-if="typedata==1">
+						  <source :src='imgurl' type="video/mp4" >
+						 <!-- <source src='http://player.youku.com/embed/XNDQ3MzE1MDI2NA==' type="video/mp4" >  -->
+					</video>
+			</div>
+ 
+
         <div class="center mar-t-2">
         	<div class="xylblj">
         		<div class="xylblj-tit">
@@ -289,6 +340,8 @@
 
     data() {
       return {
+		mask:false,
+		show_d:false,
 		activeName: 'first',
 		imglist:[],
 		vcrvideo:'',
@@ -306,13 +359,16 @@
 		linkOutlist:[],
 		title:'',
 
-			enrollQq:'',
-			enrollTel1:'',
-			enrollTel2:'',
-			enrollTel3:'', 
-			schoolAddress:'',
+		enrollQq:'',
+		enrollTel1:'',
+		enrollTel2:'',
+		enrollTel3:'', 
+		schoolAddress:'',
 
-			
+		selectedFood:{},
+
+		imgurl:'',	
+		typedata:'',
 	  };
 	  
 	},
@@ -332,7 +388,19 @@
 		   
          },
          methods:{
-			
+			 qxan(){
+				this.mask=false;
+				this.show_d=false;
+			 },
+			selectGood($event,food){
+					this.selectedFood = food;    //将当前点击的数据放入显示数组
+					this.imgurl=this.selectedFood.url ;
+					console.log(this.imgurl);
+					this.typedata= this.selectedFood.type;
+					this.mask=true;
+					this.show_d=true;
+			},
+
 			handleClick(tab, event) {
 				if(tab.index==0){
 					this.Notice()
@@ -458,5 +526,22 @@
  
 
 <style>
-
+.el-tabs--border-card>.el-tabs__content {
+    padding: 0px;
+}
+.qxan {position: fixed;top: 10px;right: 10px;z-index: 999}
+.qxan img{height: 20px;width: 20px;border-radius:5px }
+.mask { width: 100%; position: fixed; top: 0px; left: 0px; z-index: 200;  height: 100%; background: black ; opacity: 0.8; }
+ .show_d { 
+			width: 1000px; 
+			top: 5%;
+			left: 50%;
+			transform: translateX(-500px); 
+			position: fixed;
+			z-index: 300; 
+			border-radius:20px ;
+			}
+.xqtp{text-align: center; object-fit: fill}
+.show_d img{max-height:600px;max-width: 1000px;}
+ .show_d video{width: 550px; margin: 0 auto;display:block}
 </style>

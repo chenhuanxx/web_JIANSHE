@@ -24,6 +24,9 @@ import 'element-ui/lib/theme-chalk/index.css'
  
 Vue.use(ElementUI)
 
+import promise from 'es6-promise';
+promise.polyfill();
+
 import './style/admin.css'
 import './style/index.css'
 import './style/leftright.css'
