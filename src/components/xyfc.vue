@@ -2,12 +2,27 @@
   <div class="center mar-t-2">
 				 
 					
-				<app-Left></app-Left>
+				<app-Left class="pc"></app-Left>
 	        	
         			
 			<div class="fl list">
+				<div class="school-xyfc  mobile" > 
+					<el-row :gutter="10" > 
+								<dl v-for ="(item,i) in imglist" :key="i">
+									<el-col :xs="12"  >
+									<dt  @click="selectGood($event,item)" v-if="item.type==0"><img :src='item.url' width="100%"/></dt>
+									<dt  @click="selectGood($event,item)" v-if="item.type==1">
+										<video style="width:100%; height:100%; object-fit: fill"  poster="../images/about2.png"  controls="controls" muted autoplay="autoplay">
+											<source :src='item.url' type="video/mp4" >  
+											</video>
+									</dt>
+								<dd>{{item.name}}</dd>
+								</el-col>
+							</dl> 
+					</el-row>
 				
-                <div class="list-tp">
+				</div>
+                <div class="list-tp pc">
 					<dl v-for ="(item,i) in imglist" :key="i">
 	        				<dt  @click="selectGood($event,item)" v-if="item.type==0"><img :src='item.url'/></dt>
 							<dt  @click="selectGood($event,item)" v-if="item.type==1">
@@ -20,10 +35,10 @@
 
 				
 			<!--遮罩层-->
-			<div class="mask" v-if="mask"></div>
+			<div class="mask  " v-if="mask"></div>
 			
 			<!--弹出层-->
-			<div class="show_d"  v-if="show_d">
+			<div class="show_d  "  v-if="show_d">
 				 <div class="qxan" @click="qxan"><img src="../images/quan.png" alt=""> </div>
 				<div class="xqtp">
 					<img :src="imgurl"  v-if=" typedata==0"/>  
@@ -118,20 +133,5 @@
  
 
 <style>
-.qxan {position: fixed;top: 10px;right: 10px;z-index: 999}
-.qxan img{height: 20px;width: 20px;border-radius:5px }
-.mask { width: 100%; position: fixed; top: 0px; left: 0px; z-index: 200;  height: 100%; background: black ; opacity: 0.8; }
- .show_d { 
-			width: 1000px; 
-			top: 5%;
-			left: 50%;
-			transform: translateX(-500px); 
-			position: fixed;
-			z-index: 300; 
-			border-radius:20px ;
-			}
-.xqtp{text-align: center; object-fit: fill}
-.show_d img{max-height:600px;max-width: 1000px;}
- .show_d video{width: 550px; margin: 0 auto;display:block}
 
 </style>

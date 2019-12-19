@@ -1,9 +1,4 @@
-/*公共样式*/
-html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, font, img, ins, kbd, q, s, samp, small, strike, 
-strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, 
-tfoot, thead, tr, th, td ,textarea,input { margin:0; padding:0;  }
-address,cite,dfn,em,var, i {font-style:normal;}
-body {font-size: 14px;  color: #333333; }
+
 table { border-collapse:collapse; border-spacing:0; }
 h1, h2, h3, h4, h5, h6, th { font-size: 100%; font-weight: normal; }
 button,input,select,textarea{font-size:100%;}
@@ -12,7 +7,7 @@ a,
 img {
     -webkit-touch-callout: none
 }
-a,
+a,a
 a:active,
 a:focus,
 a:hover,
@@ -33,11 +28,35 @@ ul, ol { list-style: none; }
 .clear{clear: both;}
 .fl{ float: left; }
 .fr{float: right;}
-.center{
-        width: 1000px;
-        margin:0 auto;
-        overflow: hidden;
-    }
+
+
+
+@media only screen and (min-width: 757px) {
+
+    .qxan {position: fixed;top: 10px;right: 10px;z-index: 999}
+.qxan img{height: 20px;width: 20px;border-radius:5px }
+.mask { width: 100%; position: fixed; top: 0px; left: 0px; z-index: 200;  height: 100%; background: black ; opacity: 0.8; }
+ .show_d { 
+			width: 1000px; 
+			top: 5%;
+			left: 50%;
+			transform: translateX(-500px); 
+			position: fixed;
+			z-index: 300; 
+			border-radius:20px ;
+			}
+.xqtp{text-align: center; object-fit: fill}
+.show_d img{max-height:600px;max-width: 1000px;}
+ .show_d video{width: 550px; margin: 0 auto;display:block}
+
+    .footer{min-width:1000px;}
+    /*公共样式*/
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, font, img, ins, kbd, q, s, samp, small, strike, 
+strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, 
+tfoot, thead, tr, th, td ,textarea,input { margin:0; padding:0;  }
+address,cite,dfn,em,var, i {font-style:normal;}
+body {font-size: 14px;  color: #333333; }
+
 .mar-t-2{margin-top:20px; }
 .mar-b-2{margin-bottom:20px; }
 .mar-t-5{margin-top:50px; }
@@ -47,9 +66,22 @@ ul, ol { list-style: none; }
 .font-22{font-size: 22px}
 .font-18{font-size: 18px}
 .font-16{font-size: 16px}
-/* 浮动tel */
-.lxwmtp{position: fixed;right: 10px;top: 35%;z-index: 99;}
-
+    .pc{
+        display:block !important;
+    }
+    .mobile{
+     display: none  !important;
+     touch-action: auto !important;
+    }
+    .center{
+        width: 1000px;
+        margin:0 auto;
+        overflow: hidden;
+    }
+    .mar-t-2{margin-top:20px; }
+.mar-b-2{margin-bottom:20px; }
+.mar-t-5{margin-top:50px; } 
+   
 .btn-prev{
 	border:1px  solid darkcyan !important; 
     padding: 0 15px!important; 
@@ -81,8 +113,8 @@ ul, ol { list-style: none; }
 .fr{float: right;}
 
 /*导航*/
-.header{
-	width: 1000px;
+.header1{
+	    width: 1000px;
         margin:0px auto;
         overflow: hidden;
 }
@@ -107,7 +139,7 @@ ul, ol { list-style: none; }
     background: #f58a3a;
     display: block;
 }
-
+.dhxtp img{width: 100%;height: 200px;}
 /*校训*/
 .school-xx{
 	margin:10px 0px 10px 0px; height: 35px;background: #63c3d1;color: white;line-height: 35px;text-align: center;padding: 10px;
@@ -147,11 +179,11 @@ ul, ol { list-style: none; }
 	height: 360px;border-radius:2px ;
 }
 
- .tz-tit{height: 40px;line-height: 40px; border-bottom:1px solid #e6e6e6 ;overflow: hidden;}
+ .tz-tit{height: 40px;line-height: 40px; border-bottom:1px solid #e6e6e6 ;overflow: hidden; font-size: 14px;}
  .tz-tit span{font-size: 12px;}
  .tz-tit span a:hover{color:  #007DDB;}
 
- .school-zszx .zszxzx{height: 30px;  border-bottom: 1px solid #e6e6e6;}
+
 .tzgg-news ul{overflow: hidden;width: 98%;margin: 0 auto;}
 .tzgg-news .iconfont{font-size: 12px;}
 .tzgg-news ul li{
@@ -179,8 +211,10 @@ ul, ol { list-style: none; }
 .search-gjz button{height: 30px ;line-height: 30px;float: left; font-size: 12px;}
 .search-gjz a{color: white;}
 /*招生咨询*/
-.tzggsx{border-left:3px solid #32994a ;height: 20px;padding-left:15px ;line-height: 20px;margin-top: 10px;width: 200px;margin-left: 10px;}
+.tzggsx{border-left:3px solid #32994a ;height: 20px;padding-left:15px ;line-height: 20px;margin-top: 10px;width: 200px;margin-left: 10px;    font-size: 14px;}
 /* 电话 */
+.qqlx{ font-size: 12px;padding-top: 20px;}
+.school-zszx .zszxzx{height: 30px;  border-bottom: 1px solid #e6e6e6;}
 .school-zszx .phone{text-align: left;margin-bottom: 0px;overflow: hidden ;}
 .school-zszx .phone dt{    height: 85px;line-height: 85px;width: 30px;}
 .school-zszx .phone dd ul{padding: 0px;}
@@ -199,10 +233,10 @@ border-radius:2px ;height: 390px;margin-top: 10px;clear: both;
 	color:#da312b ;
 	font-size: 16px;
 }
-.school-zszx ul  p{ font-size: 14px;
+.school-zszx ul  p{ font-size: 12px;
 }
 .school-zszx ul  li{
-	padding-top: 10px;font-size: 14px;
+	padding-top: 10px;font-size: 12px;
 	 
 }
 .school-zszx ul  li button{
@@ -280,3 +314,4 @@ border-radius:2px ;height: 390px;margin-top: 10px;clear: both;
 .footer p{text-align: center;
 	color: white;
 	padding: 5px;}
+}

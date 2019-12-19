@@ -1,5 +1,5 @@
 <template>
- <div class="center mar-t-2">
+ <div class="center mar-t-2 cmob" >
   
 					<div class="list-zyjs-tit"><img src="../images/tbq.png"  >  <a target="_blank" title="学校概况" href="http://www.siso.edu.cn/">学校概况</a> </div>
 					<dl class="zyjs-js"> 

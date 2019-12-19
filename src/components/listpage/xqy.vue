@@ -1,6 +1,6 @@
 <template>
     <div class="center mar-t-2">
-					<app-Left></app-Left>
+					<app-Left class="pc"></app-Left>
 
 			<div class="fl list" style="position:relative;">
 				<div class="list-page">
