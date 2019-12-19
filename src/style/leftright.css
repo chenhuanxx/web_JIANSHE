@@ -1,4 +1,4 @@
-
+@media screen and (min-width: 757px) {
 .left-dh ul li:hover{
 	background: #007DDB;
 	color: white;
@@ -58,16 +58,46 @@ border-radius:2px ;
 
 .zszx-left { width: 250px;float: left;background: #fafaf9;border: 1px solid #e6e6e6; border-radius:2px 
 }
+.zszx-left .wxlist-lef{width: 240px; }
+
+.zszx-left .zszxzx{height: 30px;  border-bottom: 1px solid #e6e6e6;}
+.zszx-left .phone{text-align: left;margin-bottom: 0px;overflow: hidden ;}
+.zszx-left .phone dt{    height: 85px;line-height: 85px;width: 30px;}
+.zszx-left .phone dd ul{padding: 0px;}
+.adds{overflow:hidden;margin-top: 10px;}
+.zszx-left .dzl1{width: 30px;}
+.zszx-left.dzl{width: 230px;}
+
+
+.school-zszx1{height: 440px; width: 100%;float: left;overflow: hidden;}
+.zszx-left{
+	background: #fafaf9;border: 1px solid #e6e6e6; width: 250px;
+border-radius:2px ; clear: both;padding-bottom: 20px;
+}
+.zszx-leftul {padding: 0px 20px;overflow: hidden;}
+.zszx-left ul  strong{
+	color:#da312b ;
+	font-size: 16px;
+}
+.zszx-left ul  p{ font-size: 12px;
+}
+.zszx-left ul  li{
+	padding-top: 10px;font-size: 12px;
+	 
+}
+.zszx-left ul  li button{
+	background: #0893b0;width: 210px;margin: 0 auto;height: 40px;line-height: 40px;border: none;color: white;
+}
+ 
 .zszx-left  ul {padding: 15px;overflow: hidden;}
 .zszx-left ul  strong{
 	color:#da312b ;
 	font-size: 16px;
 }
-.qqlx{
-	padding-top: 20px;font-size: 14px;
+.zszx-left .qqlx{ font-size: 12px;    padding-top: 0px;
 }
 .zszx-left  ul  li{
-	font-size: 14px;padding-top: 10px;
+	font-size: 12px;padding-top: 10px;
 }
 .zszx-left ul  li button{
 	background: #0893b0;width: 210px;margin: 0 auto;height: 40px;line-height: 40px;border: none;color: white;
@@ -117,3 +147,4 @@ border-radius:2px ;
 .list-page-nr{font-size: 14px;line-height: 220%;padding-top: 20px;}
 .list-page-nr img {max-width: 100%;}
 .list-page-nr p{text-indent: 2em;}
+}

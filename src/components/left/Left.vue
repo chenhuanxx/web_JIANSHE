@@ -1,6 +1,49 @@
 <template>
     <div class="zszx-left">
-						<ul  >
+		<div  >
+						<div class="zszxzx">
+							<p class="tzggsx" >招生咨询</p>
+
+						</div>
+						
+				
+						<ul  > 
+	        				<div class="qqlx"><span class="iconfont icon-qq1"></span> 
+	        					<a target="_blank" :href="qqhm" id="udesk-feedback-tab" title="欢迎您前来咨询" style="padding-left: 10px;">
+	        						招生咨询qq : {{enrollQq}} <img border="0" src="../../images/group.png" alt="加入QQ群" title="加入QQ群" width="65px" >
+	        					</a>
+	        				</div>
+							<dl class="phone">
+								<dt style="float:left">
+									<span class="iconfont icon-dianhua"></span>
+								</dt>
+								<dd class="fl">
+									<ul>
+										<li>咨询电话1 ：<a :href='"tel://"+enrollTel1' >{{enrollTel1}}</a> 	</li>
+										<li>咨询电话1 ：<a :href='"tel://"+enrollTel2' >{{enrollTel2}}</a> 	</li>
+										<li>咨询电话1 ：<a :href='"tel://"+enrollTel3' >{{enrollTel3}}</a></li> 
+										 
+									</ul>
+								</dd>
+							</dl>
+
+	        				 <div class="adds">
+								 <p class="fl dzl1"><span class="iconfont icon-dizhi1"></span> </p>  <p class="fl dzl">学院地址 ：{{schoolAddress}}</p> 
+
+							 </div>
+	        				 
+	        			</ul>
+							<div class="wxlist-lef">
+								<div class="fr wxtp1 ">
+									<img src="../../images/wxewm.png" alt="" width="100px">
+								</div>
+								<div  class="fr  wxtp1">
+									<img src="../../images/QQewm.png" alt="" width="100px">
+								</div>
+
+							</div>
+					</div>
+						<!-- <ul  >
 	        				<strong>招生咨询</strong>
 	        				<div class="qqlx"><span class="iconfont icon-qq1"></span> :
 	        					<a target="_blank" href="http://wpa.qq.com/msgrd?v=3&uin=1276520&site=qq&menu=yes" id="udesk-feedback-tab" title="欢迎您前来咨询">
@@ -24,11 +67,7 @@
 	        				 <div class="adds">
 								 <p class="fl dzl1"><span class="iconfont icon-dizhi1"></span> :</p>  <p class="fl dzl">{{schoolAddress}}</p> 
 
-							 </div>
-	        				
-								<!-- 江苏省苏州独墅湖科教创新区若水路99号 -->
-								 
-
+							 </div> 
 	        			</ul>
 						<div class="wxtp">
 							<dl>
@@ -41,7 +80,7 @@
 							</dl>
 
 						</div>
-							
+							 -->
 
 	 </div>
 
@@ -55,6 +94,7 @@ export default {
 			enrollTel2:'',
 			enrollTel3:'', 
 			schoolAddress:'',
+			qqhm:'',
 
 		}
 	},
@@ -72,10 +112,8 @@ export default {
 					this.enrollTel2=listdata.enrollTel2
 					this.enrollTel3=listdata.enrollTel3
 					this.schoolAddress=listdata.schoolAddress
-					 console.log(this.listdata )
-
-					 t
-					
+				 
+					this.qqhm = 'http://wpa.qq.com/msgrd?v=3&uin='+this.enrollQq+'&site=qq&menu=yes'
 				}) 
 		}
 	}

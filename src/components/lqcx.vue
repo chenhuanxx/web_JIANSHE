@@ -9,7 +9,7 @@
                <el-input v-model="ruleForm.name" placeholder="请输入姓名" clearable/>
             </el-form-item>
 
-            <el-form-item>
+            <el-form-item class="mol-tj">
               <el-button class="layui-btn" type="primary" @click="onSubmit">立即提交</el-button>
               <el-button @click="resetForm('ruleForm')">重置</el-button>
             </el-form-item>
@@ -36,6 +36,7 @@
               </el-table>
 					</div>
 			</div>
+      
 		</div>
 
 </template>
@@ -63,7 +64,7 @@
             { required: true, message: '请输入姓名', trigger: 'blur' }
           ],
         },
-        tableData:[  ],
+        tableData:[ {enrollNo:"sa",name:"sac"} ],
 
 
       };

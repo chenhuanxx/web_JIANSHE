@@ -1,7 +1,7 @@
 <template>
   <div class="center mar-t-2">
 				 
-					<app-Left></app-Left>
+					<app-Left class="pc"></app-Left>
         			
 			<div class="fl list">
 				<div class="list-1">
@@ -10,7 +10,7 @@
 						<dd><router-link :to="{path: 'listpage/xqy', query: {id: id}}">{{title}}</router-link></dd>
 					</dl>
 					<ul >
-						<li v-for="(item ,index) in NoticeData" :key="index"><router-link :to="{path: 'listpage/xqy', query: {id: item.id}}">{{item.title}}</router-link> 
+						<li v-for="(item ,index) in NoticeData" :key="index"><router-link :to="{path: 'listpage/xqy', query: {id: item.id}}" :style="item.titleColor">{{item.title}}</router-link> 
 								<img v-if="item.new==true" src="../images/new.png" />
 								<img v-if="item.hot==true" src="../images/hot.png" />
 								<span>{{item.publishTime}}</span>
@@ -73,6 +73,7 @@
 					for(var i =0;i<arr.length;i++){
 						let datatime = arr[i].publishTime;
 						arr[i].publishTime = datatime.substring(0, datatime.length - 8);
+						arr[i].titleColor = 'color:'+arr[i].titleColor
 					}
 					this.NoticeData =  arr; 
 

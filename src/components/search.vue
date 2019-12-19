@@ -1,39 +1,79 @@
 <template>
   <div class="center mar-t-2">
-				 
+			<div class="pc">
+				<app-Left></app-Left>
+				<div class="fl list">
+					<div class="list-1">
+						<dl >
+							
+							<dt><router-link :to="{path: 'listpage/xqy', query: {id: id}}"><img :src="picture" width="100%"/></router-link></dt>
+							<dd><router-link :to="{path: 'listpage/xqy', query: {id: id}}">{{title}}</router-link></dd>
+						</dl>
+						<ul >
+							<li v-for="(item ,index) in NoticeData" :key="index"><router-link :to="{path: 'listpage/xqy', query: {id: item.id}}">{{item.title}}</router-link> 
+									<img v-if="item.new==true" src="../images/new.png" />
+									<img v-if="item.hot==true" src="../images/hot.png" />
+									<span>{{item.publishTime}}</span>
+							</li>
+						</ul>
+						
+					</div>
+					<!-- @size-change="handleSizeChange" -->
+					<div class="page" id="test1">
+						<el-pagination 
+						background 
+						
+						@current-change="handleCurrentChange"
+						layout="total,prev, pager, next"
+						prev-text="上一页"
+						next-text="下一页"
+						:total="total" 
+						:page-size="20">
+						</el-pagination>
+					</div>
+				</div>
+			</div>	 
+
+
+
+			<div class="mobile">
+				<div class=" list">
+					<div class="list-1">
+						<dl >
+							
+							<dt><router-link :to="{path: 'listpage/xqy', query: {id: id}}"><img :src="picture" width="100%"/></router-link></dt>
+							<dd><router-link :to="{path: 'listpage/xqy', query: {id: id}}">{{title}}</router-link></dd>
+						</dl>
+						<ul >
+							<li v-for="(item ,index) in NoticeData" :key="index"><router-link :to="{path: 'listpage/xqy', query: {id: item.id}}">{{item.title}}</router-link> 
+									<img v-if="item.new==true" src="../images/new.png" />
+									<img v-if="item.hot==true" src="../images/hot.png" />
+									<span>{{item.publishTime}}</span>
+							</li>
+						</ul>
+						
+					</div>
+					<!-- @size-change="handleSizeChange" -->
+					<div class="page" id="test1">
+						<el-pagination 
+						background 
+						
+						@current-change="handleCurrentChange"
+						layout="total,prev, pager, next"
+						prev-text="上一页"
+						next-text="下一页"
+						:total="total" 
+						:page-size="20">
+						</el-pagination>
+					</div>
+				</div>
+
+			</div>
 					
-					<app-Left></app-Left>
+					
 	        	
         			
-			<div class="fl list">
-				<div class="list-1">
-					<dl >
-						
-						<dt><router-link :to="{path: 'listpage/xqy', query: {id: id}}"><img :src="picture" width="100%"/></router-link></dt>
-						<dd><router-link :to="{path: 'listpage/xqy', query: {id: id}}">{{title}}</router-link></dd>
-					</dl>
-					<ul >
-						<li v-for="(item ,index) in NoticeData" :key="index"><router-link :to="{path: 'listpage/xqy', query: {id: item.id}}">{{item.title}}</router-link> 
-								<img v-if="item.new==true" src="../images/new.png" />
-								<img v-if="item.hot==true" src="../images/hot.png" />
-								<span>{{item.publishTime}}</span>
-						</li>
-					</ul>
-					
-				</div>
-				<!-- @size-change="handleSizeChange" -->
-				<div class="page" id="test1">
-					<el-pagination 
-					background 
-					
-      				@current-change="handleCurrentChange"
-					layout="total,prev, pager, next"
-					prev-text="上一页"
-					next-text="下一页"
-					:total="total" 
-					:page-size="20">
-					</el-pagination></div>
-			</div>
+			
 		</div>
 		
 </template>
