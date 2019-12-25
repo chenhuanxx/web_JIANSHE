@@ -1,11 +1,7 @@
 <template>
   <div class="center mar-t-2">
     <div class="pc">
-
-
 					<app-Left></app-Left>
-
-
 			<div class="fl list">
 				<div class="contact">
           <div class="xslxfs">
@@ -35,7 +31,7 @@
 
           </el-form>
           <div class="map">
-						<iframe src="https://j.map.baidu.com/fa/CHl" ></iframe>
+						<iframe src="https://j.map.baidu.com/fa/CHl"  frameborder="0" scrolling="no"></iframe>
 					</div>
 					<ul class=" mar-t-2">
 						<strong>学校联系方式</strong>
@@ -75,8 +71,7 @@
 			</div>
 </div>
 
- <div class="mobile">
- 
+ <div class="mobile"> 
 			<div class=" list-m">
 				<div class="contact">
           	<div class="xslxfs">
@@ -105,9 +100,9 @@
               </el-form-item>
 
           </el-form>
-          <div class="map">
-						<iframe src="https://j.map.baidu.com/fa/CHl" ></iframe>
-					</div>
+          <!-- <div class="map">
+						<iframe src="https://j.map.baidu.com/fa/CHl"  frameborder="0" scrolling="no"></iframe>
+					</div> -->
 
 					<ul>
 						<strong>学校联系方式</strong>
@@ -143,8 +138,7 @@
 						<li>邮箱 : {{email}}</li>
 						<li>邮编 : 215123</li>
 					</ul>
-					
-				
+					 
 				</div>
 			</div>
 </div>

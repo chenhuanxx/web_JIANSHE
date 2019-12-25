@@ -62,32 +62,27 @@
                         <el-row :gutter="1" class="dh-m"> 
                             <el-col :xs="8"  > <li  > <router-link to="/tzgg">{{tzgg}}</router-link></li></el-col>
                             <el-col :xs="8"  > <li  > <router-link to="/zyjs">{{zyjs}}</router-link></li></el-col>
-                            <el-col :xs="8"  ><li  > <router-link to="/zsjz">{{zsjz}}</router-link></li> </el-col>  
+                            <el-col :xs="8"  > <li  > <router-link to="/zsjz">{{zsjz}}</router-link></li> </el-col>  
                             <el-col :xs="8"  > <li  > <router-link to="/zsjh">{{zsjh}}</router-link></li></el-col>
                             <el-col :xs="8"  > <li  > <router-link to="/lqcx">{{lqcx}}</router-link></li></el-col>
                             <el-col :xs="8"  > <li  > <router-link to="/xyfc">{{xyfc}}</router-link></li></el-col>
-                            <el-col :xs="8"  ><li  > <router-link to="/bdzn">{{bdzn}}</router-link></li></el-col>
-                            <el-col :xs="8"  ><li  > <router-link to="/lxwm">{{lxwm}}</router-link></li> </el-col>
-                            <el-col :xs="8"  ><li  > <router-link to="/rmwd">{{rmwd}}</router-link></li></el-col> 
+                            <el-col :xs="8"  > <li  > <router-link to="/bdzn">{{bdzn}}</router-link></li></el-col>
+                            <el-col :xs="8"  > <li  > <router-link to="/lxwm">{{lxwm}}</router-link></li> </el-col>
+                            <el-col :xs="8"  > <li  > <router-link to="/rmwd">{{rmwd}}</router-link></li></el-col> 
                         </el-row>
-                </div>
+                </div> 
 
-                <!-- <div class="ddtp" id=" " v-if="lxwmshow">
-                    <div class="lxwmtp">
-                        <div class="qxlxwm" @click="qxan"><img src="../images/quan.png" alt="" style="width:20px;height:20px;float:right "> </div>
-                        <div  > </div>
+
+                <div  class="pc  ball"   v-if="lxwmshow">
+                    <div class="tp-pc"  >
+                         <img src="../images/quan.png" alt="" style="width:15px;height:15px;position:absolute;right:2px;top:2px "  @click="qxan" @mouseover="enter" @mouseout ="out">
+                         <router-link to="/lxwm" ><img src="../images/tel.png" width="150px" @mouseover="enter" @mouseout ="out"/></router-link> 
                     </div> 
-                </div> -->
-                <!-- <div id="img">
-                 <router-link to="/lxwm" ><img src="../images/tel.png" width="200px" /></router-link>
-                    <div class="reset">关闭&times;</div>
-                </div> -->
-
-
-                
+                </div> 
        </div> 
 </template>
 <script>  
+import $ from 'jquery' 
      export default{
          data(){
              return{
@@ -102,13 +97,61 @@
                  bdzn:'',
                  lxwm:'',
                  rmwd:'',
+                 timeinl:'',
              }
          },
             
-         created(){ 
+         created(){   
              this.getdata();
-         },
-         methods:{ 
+             this.$nextTick(function () {
+                this.imgFloat( );
+                }) 
+            },
+         methods:{  
+             imgFloat ( ) { 
+                  var oBall = document.querySelector('.ball');
+                    var leftNum =2;             //设置小球每次向左运动的像素值
+                    var topNum = 2;              //设置小球每次向下运动的像素值
+                    var leftMax = window.innerWidth-oBall.clientWidth;             //浏览器窗口宽度减去小球的宽度等于小球能运动到的最大左边位置，下一行代码同理。
+                    var topMax = window.innerHeight-oBall.clientHeight;
+                    window.onresize = function(){     //当浏览器窗口发生变化时，实时获取浏览器窗口的宽高
+                        var leftMax =  window.innerWidth.clientWidth-oBall.clientWidth;
+                        var topMax = window.innerHeight-oBall.clientHeight;
+                    } 
+                  this.timeinl =  setInterval(function(){              //为小球的运动新建一个计时器
+                        var Left = oBall.offsetLeft+leftNum,    //小球每次运动完之后，距离浏览器左边边框的距离：上一次距离边框的距离加上这次运动的距离，下一行代码同理
+                            Top = oBall.offsetTop+topNum;
+                        //判断当小球向左移动的位置大于之前限定的最大距离或者小于0时，也就是超出浏览器窗口的左右边框时，
+                        //使他运动的方向取反leftNum = -leftNum，下面Top的判断同理。
+                        if(Left>=leftMax){               
+                            Left = leftMax;
+                            leftNum = -leftNum;     //传参数到下面的获取随机颜色的function
+                        }else if(Left<=0){
+                            Left = 0;
+                            leftNum = -leftNum;  
+                        };
+                        if(Top>=topMax){
+                            Top = topMax;
+                            topNum = -topNum; 
+                        }else if(Top<=0){
+                            Top = 0;
+                            topNum = -topNum;  
+                        };
+                        oBall.style.left = Left+'px';      
+                        oBall.style.top = Top+'px';
+
+                    },50)                      //小球每次执行运动的时间
+
+                   
+            },
+  
+            enter(){  
+                clearTimeout(this.timeinl); 
+            }, 
+            out(){
+                this.imgFloat();
+            },
+ 
               qxan(){
                   this.lxwmshow=false; 
               },
@@ -157,10 +200,17 @@
      }
  </script>
   <style >
-   #img{
-    position: absolute;  
-      }
- #img a{
+ .ball{
+            width:150px; 
+            border-radius: 50%;
+            height: 110px;
+            position:absolute;
+            z-index:120;
+            top:0;
+            left:0;
+        }  
+    .tp-pc{width: 150px;    position: absolute;}
+    #img a{
     text-decoration: none;
     color:green;
     display:block; 

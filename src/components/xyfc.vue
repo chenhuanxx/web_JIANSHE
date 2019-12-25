@@ -8,19 +8,22 @@
 			<div class="fl list">
 				<div class="school-xyfc  mobile" > 
 					<el-row :gutter="10" > 
-								<dl v-for ="(item,i) in imglist" :key="i">
-									<el-col :xs="12"  >
-									<dt  @click="selectGood($event,item)" v-if="item.type==0"><img :src='item.url' width="100%"/></dt>
-									<dt  @click="selectGood($event,item)" v-if="item.type==1">
-										<video style="width:100%; height:100%; object-fit: fill"  poster="../images/about2.png"  controls="controls" muted autoplay="autoplay">
-											<source :src='item.url' type="video/mp4" >  
-											</video>
-									</dt>
-								<dd>{{item.name}}</dd>
+						<dl v-for ="(item,i) in imglist" :key="i">
+							<el-col :xs="12"  >
+							<dt  @click="selectGood($event,item)" v-if="item.type==0"><img :src='item.url' width="100%" /></dt>
+							<dt  @click="selectGood($event,item)" v-if="item.type==1">
+								<video height="100%" 
+								poster="../images/vio.png"  
+								playsinline    
+								preload="auto" 
+								ref="videoPlay"
+								:src="item.url" type="video/mp4" width="100%" x5-video-player-type="h5" x5-video-player-fullscreen="true"   style="object-fit:fill;height:100%;"></video>
+							</dt>
+						<dd >{{item.name}}</dd>
 								</el-col>
 							</dl> 
 					</el-row>
-				
+						
 				</div>
                 <div class="list-tp pc">
 					<dl v-for ="(item,i) in imglist" :key="i">
@@ -35,18 +38,17 @@
 
 				
 			<!--遮罩层-->
-			<div class="mask  " v-if="mask"></div>
-			
+			<div class="mask" v-if="mask"></div> 
 			<!--弹出层-->
-			<div class="show_d  "  v-if="show_d">
-				 <div class="qxan" @click="qxan"><img src="../images/quan.png" alt=""> </div>
+			<div class="show_d"  v-if="show_d">
+				 <div class="qxan" @click="qxan"><img src="../images/quan.png" alt="" style="width:20px;height:20px"> </div>
 				<div class="xqtp">
-					<img :src="imgurl"  v-if=" typedata==0"/>  
-				</div>
-				 
-					<video   poster="../images/about2.png"  controls="controls" muted autoplay="autoplay" v-if="typedata==1">
-						 <source :src='imgurl' type="video/mp4" >
-					</video>
+					<img :src="imgurl"  v-if=" typedata==0" />  
+				</div> 
+				<video class="pc" ref="videoPlay" :src="imgurl"  controls   autoplay="autoplay" poster="../images/about2.png"  
+				style=" object-fit: fill" v-if=" typedata==1" ></video> 
+				<video class="mobile" ref="videoPlay" :src="imgurl"  controls   autoplay="autoplay" poster="../images/about2.png"  
+				style="width:90%; object-fit: fill" v-if=" typedata==1" ></video> 
 			</div>
 				<div class="page" id="test1"> 
 					<el-pagination 
@@ -97,8 +99,10 @@
 			 },
 			selectGood($event,food){
 					this.selectedFood = food;    //将当前点击的数据放入显示数组
-					this.imgurl=this.selectedFood.url ;
-					console.log(this.imgurl);
+					this.imgurl=this.selectedFood.url ; 
+					 this.$nextTick(() => { 
+                        this.$refs.videoPlay.load() 
+                   })
 					this.typedata= this.selectedFood.type;
 					this.mask=true;
 					this.show_d=true;

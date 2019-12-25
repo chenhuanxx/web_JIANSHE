@@ -17,18 +17,18 @@
 
 
              <div class="mobile bot-dh">  
-                        <el-row :gutter="1" class="dh-m"> 
-                            <el-col :xs="12"  > 
+                  <el-row :gutter="1" class="dh-m"> 
+                            <el-col :xs="8"  > 
                                  <li  > <router-link to="/">首页</router-link></li>
                             </el-col> 
-                            <el-col :xs="12"  >  
+                            <el-col :xs="8"  >  
                                 <li ><a :href='"tel://"+consultTel'>在线咨询</a> </li>
                             </el-col> 
-                        </el-row>
-
-             </div>
-        	
-        	
+                             <el-col :xs="8"  >  
+                                <li > <a href="https://j.map.baidu.com/c5/CYr">导航</a></li>
+                            </el-col>  
+                  </el-row> 
+             </div> 
         </div>
         
 </template>

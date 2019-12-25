@@ -10,7 +10,7 @@
 						<ul  > 
 	        				<div class="qqlx"><span class="iconfont icon-qq1"></span> 
 	        					<a target="_blank" :href="qqhm" id="udesk-feedback-tab" title="欢迎您前来咨询" style="padding-left: 10px;">
-	        						招生咨询qq : {{enrollQq}} <img border="0" src="../../images/group.png" alt="加入QQ群" title="加入QQ群" width="65px" >
+	        						招生咨询qq : {{enrollQq}} <img border="0" src="../../images/group.png" alt="加入QQ群" title="加入QQ群" width="65px" style="padding-left: 30px;" >
 	        					</a>
 	        				</div>
 							<dl class="phone">

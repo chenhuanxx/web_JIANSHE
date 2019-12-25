@@ -8,6 +8,7 @@ import router from './router'
 import axios from 'axios'
 axios.defaults.baseURL =  process.env.BASE_API; // 关键步骤–填写后台请求统一的地址
 axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded';
+axios.defaults.headers.post['Access-Control-Allow-Origin'] = '*';
 Vue.config.productionTip = false;
 Vue.prototype.$http = axios; 
 // router.beforeEach((to, from, next) => {
@@ -16,14 +17,18 @@ Vue.prototype.$http = axios;
 //     document.title = to.meta.title
 //   } 
 //   router.addRoutes(routes)
-// })
-Vue.config.productionTip = false
+// }) 
  
 import ElementUI from 'element-ui'
 import 'element-ui/lib/theme-chalk/index.css'
  
 Vue.use(ElementUI)
+import Common from '../src/js/common.js'
+Vue.use(Common);
 
+
+import vueJsonp from 'vue-jsonp'
+Vue.use(vueJsonp)
 
 import  'lib-flexible'
 

@@ -71,17 +71,13 @@
         	</div>
         </div>
 
-
+<!-- 电脑 -->
         <div class="center pc">
-        		<div class="fl school-sp">
-        			<video style="width:100%; height:100%; object-fit: fill"  poster="../images/about2.png"  controls="controls" muted autoplay="autoplay">
-								<source :src="vcrvideo" type="video/mp4" >
-							</video>
-					<!-- <video style="width:100%; height:100%; object-fit: fill"  poster="../images/about2.png"  controls="controls" muted autoplay="autoplay">
-					    <source src="../video/wbxy.mp4" type="video/mp4" >
-					</video> -->
-					
+        		<div class="fl school-sp ">
+					<video ref="videoPlay" :src="vcrvideo"  controls muted autoplay="autoplay" poster="../images/about2.png" style="width:100%; height:100%; object-fit: fill" ></video>
+         
 	        	</div>
+				 
 	        	
 	        	<div class="fl school-tzgg">
 					<div class="tz-tit">
@@ -103,16 +99,11 @@
 	        	</div>
         </div>
 
+<!-- 手机 -->
 		<div class="center mobile mar-t-2"  > 
-
-        			<video style="width:100%; height:100%; object-fit: fill"  poster="../images/about2.png"  controls="controls" muted autoplay="autoplay">
-								<source :src="vcrvideo" type="video/mp4" >
-							</video>
-					<!-- <video style="width:100%; height:100%; object-fit: fill"  poster="../images/about2.png"  controls="controls" muted autoplay="autoplay">
-					    <source src="../video/wbxy.mp4" type="video/mp4" >
-					</video> -->
-					 
-	        	
+        			<video ref="videoPlay" :src="vcrvideo"  controls  poster="../images/about2.png"
+					 style="width:100%; object-fit: fill" ></video>
+          
 	        	<div class="  school-tzgg mar-t-2">
 					<div class="tz-tit">
 						<p class="tzggsx fl">通知公告</p>
@@ -231,11 +222,9 @@
 								</div>
 
 								<ul > 
-									<li v-for="(item ,index) in GuideData" :key="index"> 
-										<router-link :to="{path: 'listpage/xqy', query: {id: item.id}}" :style='item.titleColor'> {{item.title | ellipsis2}}</router-link> 
-										<img v-if="item.new==true" src="../images/new.png" />
-										<img v-if="item.hot==true" src="../images/hot.png" /> 
-										<span class="  fr" >{{item.publishTime}}</span>
+									<li v-for="(item ,index) in xydt" :key="index"> 
+										<a :href="'http://www.siso.edu.cn/html/News-'+item.ID+'.htm'"  target="_blank"> {{item.MAINSUBJECT | ellipsis2}} </a>
+										<span class="  fr" >{{item.ADDTIME}}</span>
 									</li> 
 								</ul>
 						</div>
@@ -251,7 +240,7 @@
 						<form class="layui-form" action=""> 
 							<input type="text" v-model="title"    placeholder="请输入关键字"   class="layui-input">
 							<button type="button" class="layui-btn"  style="background: #00a0e9;"  @click="search">
-									 <img src="../images/search-ico.png" width="10px"/>  搜索 
+									 <img src="../images/search-ico.png" width="18px"/>  搜索 
 							</button> 
 						</form>
 					</div>
@@ -333,17 +322,14 @@
 								</span>
 								</div> 
 								<ul > 
-									<li v-for="(item ,index) in GuideData" :key="index"> 
-										<router-link :to="{path: 'listpage/xqy', query: {id: item.id}}" :style='item.titleColor'> {{item.title | ellipsis2}}</router-link> 
-										<img v-if="item.new==true" src="../images/new.png" />
-										<img v-if="item.hot==true" src="../images/hot.png" />
-										
-										<span class="  fr" >{{item.publishTime}}</span>
+									<li v-for="(item ,index) in xydt" :key="index"> 
+										<a :href="'http://www.siso.edu.cn/html/News-'+item.ID+'.htm'"  target="_blank"> {{item.MAINSUBJECT | ellipsis2}} </a>
+										 
+										<span class="  fr" >{{item.ADDTIME}}</span>
 									</li> 
 								</ul>
 						</div>
 					</div>
-  
         </div>
 		<!-- mobile end -->
 		<div class="center mar-t-2 pc">
@@ -353,13 +339,12 @@
 						<span class="fr">
 							<router-link to="/xyfc">查看更多>></router-link>
 						</span> 
-					</div>
-	        		
+					</div> 
 	        		<div class="school-xyfc-tp">
 	        			<dl v-for ="(item,i) in imglist" :key="i">
 	        				<dt  @click="selectGood($event,item)" v-if="item.type==0"><img :src='item.url'/></dt>
 							<dt  @click="selectGood($event,item)" v-if="item.type==1">
-								<video style="width:100%; height:100%; object-fit: fill"  poster="../images/about2.png"  controls="controls" muted autoplay="autoplay">
+								<video style="width:100%; height:100%; object-fit: fill ; border-radius: 4px;"  poster="../images/about2.png"  controls="controls" muted autoplay="autoplay">
 									  <source :src='item.url' type="video/mp4" >   
 								</video></dt>
 	        				<dd>{{item.name}}</dd>
@@ -380,13 +365,16 @@
 			<el-row :gutter="10" > 
 						<dl v-for ="(item,i) in imglist" :key="i">
 							<el-col :xs="12"  >
-							<dt  @click="selectGood($event,item)" v-if="item.type==0"><img :src='item.url' width="100%"/></dt>
-							<!-- <dt  @click="selectGood($event,item)" v-if="item.type==1">
-								<video style="width:100%; height:100%; object-fit: fill"  poster="../images/about2.png"  controls="controls" muted autoplay="autoplay">
-									<source :src='item.url' type="video/mp4" >  
-								</video>
-							</dt> -->
-						<dd v-if="item.type==0">{{item.name}}</dd>
+							<dt  @click="selectGood($event,item)" v-if="item.type==0"><img :src='item.url' width="100%" /></dt>
+							<dt  @click="selectGood($event,item)" v-if="item.type==1">
+								<video height="100%" 
+								poster="../images/vio.png"  
+								playsinline    
+								preload="auto" 
+								ref="videoPlay"
+								:src="item.url" type="video/mp4" width="100%" x5-video-player-type="h5" x5-video-player-fullscreen="true"   style="object-fit:fill;height:100%;"></video>
+							</dt>
+						<dd >{{item.name}}</dd>
 						</el-col>
 					</dl> 
 			</el-row>
@@ -400,10 +388,10 @@
 				<div class="xqtp">
 					<img :src="imgurl"  v-if=" typedata==0" />  
 				</div> 
-				<video   poster="../images/about2.png"  controls="controls" muted autoplay="autoplay" v-if="typedata==1">
-						<source :src='imgurl' type="video/mp4" >
-						<!-- <source src='http://player.youku.com/embed/XNDQ3MzE1MDI2NA==' type="video/mp4" >  -->
-				</video>
+				<video class="pc" ref="videoPlay" :src="imgurl"  controls   autoplay="autoplay" poster="../images/about2.png"  
+				style=" object-fit: fill" v-if=" typedata==1" ></video> 
+				<video class="mobile" ref="videoPlay" :src="imgurl"  controls   autoplay="autoplay" poster="../images/about2.png"  
+				style="width:90%; object-fit: fill" v-if=" typedata==1" ></video>
 			</div>
  
 
@@ -416,7 +404,6 @@
 					<li v-for="(item ,index) in linkINlist" :key="index">
 						<a target="_blank" :href="item.url"  rel="noopener noreferrer" :title="item.name">{{item.name}}</a>
 					</li>
-					
         		</ul>
         	</div>
         </div>
@@ -430,7 +417,6 @@
 					<li v-for="(item ,index) in linkOutlist" :key="index">
 						<a target="_blank" :href="item.url" rel="noopener noreferrer" :title="item.name">{{item.name}}</a>
 					</li>
-        			
         		</ul>
         	</div>
         </div>
@@ -441,6 +427,8 @@
   
 </template>
 <script>
+import axios from 'axios'
+import { formatDate } from "@/datetime/formatDate"
   export default {
 
 	  		filters: {
@@ -453,15 +441,15 @@
 				} ,
 				ellipsis1 (value) {
 					if (!value) return ''
-					if (value.length > 20) {
-						return value.slice(0,20) + '...'
+					if (value.length > 16) {
+						return value.slice(0,16) + '...'
 					}
 					return value
 				},
 				ellipsis2 (value) {
 					if (!value) return ''
-					if (value.length > 20) {
-						return value.slice(0,20) + '...'
+					if (value.length > 16) {
+						return value.slice(0,16) + '...'
 					}
 					return value
 				}
@@ -479,15 +467,13 @@
 		host:'http://47.92.84.126',
 		id:'',
 		idtype:"",
-		NoticeData:[
-			 
-		],
+		NoticeData:[ ],
 		PlaningData:[ ],
-		GuideData:[
-			 
-		],
+		GuideData:[ ],
+		xydt:[],
+ 
 		linkINlist:[],
-		linkOutlist:[],
+		linkOutlist:[], 
 		title:'',
 
 		enrollQq:'',
@@ -497,37 +483,40 @@
 		schoolAddress:'',
 
 		selectedFood:{},
-
 		imgurl:'',	
 		typedata:'',
 		qqhm:'',
 	  };
 	  
 	},
-	created(){  
-			
+	created(){   
 			this.getVideo();
 
-			 this.Notice();
+			this.Notice();
 			this.Guide();
 			this.Planing();
-			
+
+			this.senddata(); 
 			this.getdata();
 
 			this.gettp();
 			this.getlinkIn();
-			this.getlinkOut();
-		   
+			this.getlinkOut(); 
          },
          methods:{
+ 
+
 			 qxan(){
 				this.mask=false;
 				this.show_d=false;
 			 },
 			selectGood($event,food){
 					this.selectedFood = food;    //将当前点击的数据放入显示数组
-					this.imgurl=this.selectedFood.url ;
-					console.log(this.imgurl);
+					this.imgurl=this.selectedFood.url ;  
+
+					 this.$nextTick(() => { 
+                        this.$refs.videoPlay.load() 
+                   })
 					this.typedata= this.selectedFood.type;
 					this.mask=true;
 					this.show_d=true;
@@ -548,8 +537,7 @@
 					type:'articileNotice'
 				} 
 				this.$http.post("/app/article/list",list).then((response) => {
-					let arr = response.data.page.records; 
-					console.log(arr)
+					let arr = response.data.page.records;  
 					for(var i =0;i<arr.length;i++){
 						let datatime = arr[i].publishTime;
 						arr[i].publishTime = datatime.substring(0, datatime.length - 8);
@@ -573,7 +561,6 @@
 						arr[i].titleColor = 'color:'+arr[i].titleColor
 					}
 					this.PlaningData =  arr; 
-					 
 				}) 
 
 			},
@@ -589,15 +576,40 @@
 						arr[i].publishTime = datatime.substring(0, datatime.length - 8);
 						arr[i].titleColor = 'color:'+arr[i].titleColor
 					}
-					this.GuideData =  arr; 
-					 
-				}) 
-
+					this.GuideData =  arr;  
+					// console.log(this.GuideData)
+				})  
+			},
+			// 校园动态
+		 
+			senddata(){   
+				 axios({ 
+					method: 'post',
+					url:'http://192.168.11.34:8081/home/GetNoticeList?pagesize=12&pagecode=1',
+					}).then((resp)=>{ 
+						var str = resp.data.result;  
+						 this.xydt= JSON.parse(str); 
+							for (let i = 0; i <this.xydt.length; i++) { 
+								let date1= this.xydt[i].ADDTIME
+								if(date1){
+									let date = new Date(date1).getTime(); 
+									this.xydt[i].ADDTIME  = formatDate(date, 'yyyy-MM-dd');
+								}  
+							}
+					}) 
 			},
 			//视频
 			getVideo(){
 				this.$http.get("/app/vcrvideo/list").then((response) => {
-					 this.vcrvideo = this.host + response.data.vcrVideoData.url;
+					// var link = this.host + response.data.vcrVideoData.url;
+this.vcrvideo = this.host + response.data.vcrVideoData.url;
+					//  this.vcrvideo =' <source src='+ link+'type="video/mp4">'
+ this.$nextTick(() => {
+
+                        this.$refs.videoPlay.load()
+
+                   })
+					 console.log(this.vcrvideo)
 				}) 
 
 			},
@@ -662,8 +674,8 @@
  
 
 <style>
-.el-tabs--border-card>.el-tabs__content {
-    padding: 0px;
-}
  
+ .el-tabs--border-card>.el-tabs__content {
+    padding: 0px !important ;
+}
 </style>
