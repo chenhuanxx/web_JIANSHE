@@ -12,7 +12,7 @@
 						{{content}}
 					</div>
 					 <ul style="position:absolute;bottom:10px">
-						<li v-for="(item , index) in fileList" :key="index"  >附件：<a :href="item.url" style="color:#0893b0" >{{item.name}}</a> </li>
+						<li v-for="(item , index) in fileList" :key="index"  >附件：<a :href="item.url" style="color:#0893b0" :download="item.name">{{item.name}}</a> </li>
 					</ul>
          
 				</div>

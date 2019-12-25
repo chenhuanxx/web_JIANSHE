@@ -47,7 +47,9 @@ ul, ol { list-style: none; }
 			}
 .xqtp{text-align: center; object-fit: fill}
 .show_d img{max-height:600px;max-width: 1000px;}
- .show_d video{width: 550px; margin: 0 auto;display:block}
+ .show_d video{max-width: 1000px;
+    object-fit: fill;
+    max-height: 500px; margin: 0 auto;display:block}
 
     .footer{min-width:1000px;}
     /*公共样式*/
