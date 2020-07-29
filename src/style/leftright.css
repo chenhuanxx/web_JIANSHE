@@ -143,8 +143,11 @@ border-radius:2px ; clear: both;padding-bottom: 20px;
 .list-page dl{text-align: center;overflow: hidden;border-bottom:1px solid darkgray ;padding-bottom: 10px;}
 .list-page dl dt{font-size: 16px;line-height: 40px;}
 .list-page dl dd{font-size: 12px;}
-
 .list-page-nr{font-size: 14px;line-height: 220%;padding-top: 20px;}
-.list-page-nr img {max-width: 100%;}
-.list-page-nr p{text-indent: 2em;}
+.list-page-nr img {max-width: 100%;} 
+
+.list-page-nr table {max-width:740px !important ;}
+.list-page-nr tr{border: 1px solid darkgrey;padding-left: 2px;}
+.list-page-nr table{border: 1px solid darkgrey;padding-left: 2px;}
+.list-page-nr td{border: 1px solid darkgrey;padding-left: 2px;}
 }

@@ -75,8 +75,12 @@
 
                 <div  class="pc  ball"   v-if="lxwmshow">
                     <div class="tp-pc"  >
-                         <img src="../images/quan.png" alt="" style="width:15px;height:15px;position:absolute;right:2px;top:2px "  @click="qxan" @mouseover="enter" @mouseout ="out">
-                         <router-link to="/lxwm" ><img src="../images/tel.png" width="150px" @mouseover="enter" @mouseout ="out"/></router-link> 
+                         <img src="../images/quan.png" alt="" style="width:15px;height:15px;position:absolute;right:2px;top:2px; "  @click="qxan" @mouseover="enter" @mouseout ="out">
+                         <router-link to="/lxwm" ><img src="../images/tel.png" width="150px" style="border-radius:6px;" @mouseover="enter" @mouseout ="out"/></router-link> 
+                         <div class="scnum">
+                             <span>1</span><span>2</span><span>7</span><span>6</span> 
+                         </div>
+                         
                     </div> 
                 </div> 
        </div> 
@@ -157,7 +161,7 @@ import $ from 'jquery'
               },
 			
 			getdata(){ 
-				this.$http.post("/app/article/getLabel" ).then((response) => { 
+				this.$http.get("/app/article/getLabel" ).then((response) => { 
                     var data = response.data.list ;
                     for(var i =0 ; i<data.length;i++){
                         if(data[i].code == 'sys_label_index'){
@@ -223,4 +227,27 @@ import $ from 'jquery'
     top:5px;
     right:5px;
     font-size: 11px;}
+    .scnum{position:absolute;top:50px;right: 20px;color: red; font-size: 20px}
+    .scnum span{
+        /* text-shadow: 3px 3px  salmon; */
+        font-weight: 600;
+        animation: living 3s linear infinite; 
+        }
+         @keyframes living {
+            0%{
+                transform: scale(1);
+                font-size:20px; 
+                opacity: 1;  
+            }
+            50%{
+                transform: scale(1.5);  
+                font-size:25px;
+                opacity: 0.8;   
+            }
+            100%{
+                transform: scale(1);
+                font-size:20px; 
+                opacity: 1;
+            }
+        } 
 </style>

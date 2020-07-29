@@ -187,10 +187,9 @@ border-radius:2px ; clear: both;overflow: hidden;padding-bottom: 20px;
     border: 1px solid darkcyan !important;
     border-radius: 4px;
 	overflow: hidden;
-	text-align: center;
-	line-height:171px ;
+	text-align: center; 
 	width: 171px;
-	height:171px;
+	height:95px;
 }
 .school-xyfc   dl dd{
    height: 30px;line-height: 30px;font-size: 14px;
@@ -368,6 +367,11 @@ border-radius:2px ;
 .list-page-nr{font-size: 14px;line-height: 220%;padding-top: 20px;min-height: 400px;}
 .list-page-nr img {max-width: 100%;}
 .list-page-nr p{text-indent: 2em;}
+
+.list-page-nr table {max-width:740px !important ;}
+.list-page-nr tr{border: 1px solid darkgrey;padding-left: 2px;}
+.list-page-nr table{border: 1px solid darkgrey;padding-left: 2px;}
+.list-page-nr td{border: 1px solid darkgrey;padding-left: 2px;}
 
 
 .qxan {position: fixed;top: 10px;right: 10px;z-index: 999}

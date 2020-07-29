@@ -18,7 +18,7 @@ Vue.prototype.$http = axios;
 //   } 
 //   router.addRoutes(routes)
 // }) 
- 
+import 'babel-polyfill'
 import ElementUI from 'element-ui'
 import 'element-ui/lib/theme-chalk/index.css'
  

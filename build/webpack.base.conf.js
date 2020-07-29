@@ -23,7 +23,8 @@ module.exports = {
   context: path.resolve(__dirname, '../'),
  
   entry: {
-    'babel-polyfill': 'babel-polyfill',
+    app: ["babel-polyfill", "./src/main.js"] ,
+    // 'babel-polyfill': 'babel-polyfill',
     app: './src/main.js'
   },
   output: {

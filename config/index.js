@@ -11,7 +11,7 @@ module.exports = {
     assetsPublicPath: '/',
     proxyTable: {//在这里面配置代理跨域
       '/api': {  
-        target: 'http://47.92.84.126/siso-enroll',  
+        target: 'http://zs.siso.edu.cn/siso-enroll',  
         changeOrigin: true,  
         pathRewrite: {  
             '^/api': '/'  

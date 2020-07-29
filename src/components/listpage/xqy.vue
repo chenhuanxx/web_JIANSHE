@@ -13,13 +13,9 @@
 					</div>
 					 <ul style="position:absolute;bottom:10px">
 						<li v-for="(item , index) in fileList" :key="index"  >附件：<a :href="item.url" style="color:#0893b0" :download="item.name">{{item.name}}</a> </li>
-					</ul>
-         
-				</div>
-				
-
-			</div>
-
+					</ul> 
+				</div> 
+			</div> 
 		</div>
 </template>
 <script>
@@ -35,7 +31,7 @@ import Left from '../left/Left.vue';
 			updateDate:'',
 			content:'',
 			title:'',
-			host:'http://47.92.84.126',
+			host:'http://zs.siso.edu.cn',
 			fileList:[],
 		}
 	},

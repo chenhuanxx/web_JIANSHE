@@ -53,7 +53,7 @@
 	        		</li>
 	        		<i><img src="../images/jt1.png"/></i>
 	        		<li>
-	        			<router-link to="/zyjs">提前单招</router-link> 
+	        			<router-link to="/zyjs">提前招生</router-link> 
 	        		</li>
 	        		<i><img src="../images/jt2.png"/></i>
 	        		<li>
@@ -81,7 +81,7 @@
 	        	
 	        	<div class="fl school-tzgg">
 					<div class="tz-tit">
-						<p class="tzggsx fl">通知公告</p>
+						<p class="tzggsx fl">{{tzgg}}</p>
 						<span class="fr">
 							<router-link to="/tzgg">查看更多>></router-link>
 						</span>
@@ -106,7 +106,7 @@
           
 	        	<div class="  school-tzgg mar-t-2">
 					<div class="tz-tit">
-						<p class="tzggsx fl">通知公告</p>
+						<p class="tzggsx fl">{{tzgg}}</p>
 						<span class="fr">
 							<router-link to="/tzgg">查看更多>></router-link>
 						</span>
@@ -114,7 +114,7 @@
 					<div  class="tzgg-news">
 							<ul >
 					    		<li v-for="(item ,index) in NoticeData" :key="index"> 
-									<router-link :to="{path: 'listpage/xqy', query: {id: item.id}}" :style='item.titleColor' > {{item.title  | ellipsis}}</router-link> 
+									<router-link :to="{path: 'listpage/xqy', query: {id: item.id}}" :style='item.titleColor' > {{item.title  | ellipsis3}}</router-link> 
 					    			<img v-if="item.new==true" src="../images/new.png" />
 					    			<img v-if="item.hot==true" src="../images/hot.png" />
 					    			<span class="fr">{{item.publishTime}}</span>
@@ -144,7 +144,7 @@
 						</div> 
 						<ul  > 
 	        				<div class="qqlx"><span class="iconfont icon-qq1"></span> 
-	        					<a target="_blank" :href="qqhm" id="udesk-feedback-tab" title="欢迎您前来咨询" style="padding-left: 10px;">
+	        					<a target="_blank" href="//shang.qq.com/wpa/qunwpa?idkey=e92d28e96279b179f666a92da7a90434bef92a0eaf817b6ab5112e24fedc15ea" id="udesk-feedback-tab" title="欢迎您前来咨询" style="padding-left: 10px;">
 	        						招生咨询qq : {{enrollQq}} <img border="0" src="./../images/group.png" alt="加入QQ群" title="加入QQ群" width="65px" >
 	        					</a>
 	        				</div>
@@ -182,7 +182,7 @@
 					<div >
 						<el-tabs type="border-card" class="news-list1">
 
-							<el-tab-pane label="招生计划">
+							<el-tab-pane :label="zsjh">
 								<div class="tzgg-news" >
 									<ul >
 										<li v-for="(item ,index) in PlaningData" :key="index"> 
@@ -195,7 +195,7 @@
 								
 								</div>
 							</el-tab-pane>
-							<el-tab-pane label="招生简章">
+							<el-tab-pane :label="zsjz">
 								<div class="tzgg-news" >
 									<ul >
 										<li v-for="(item ,index) in GuideData" :key="index"> 
@@ -253,7 +253,7 @@
 				
 						<ul  > 
 	        				<div class="qqlx"><span class="iconfont icon-qq1"></span> 
-	        					<a target="_blank" :href="qqhm" id="udesk-feedback-tab" title="欢迎您前来咨询" style="padding-left: 10px;">
+	        					<a target="_blank" href="//shang.qq.com/wpa/qunwpa?idkey=e92d28e96279b179f666a92da7a90434bef92a0eaf817b6ab5112e24fedc15ea" id="udesk-feedback-tab" title="欢迎您前来咨询" style="padding-left: 10px;">
 	        						招生咨询qq : {{enrollQq}} <img border="0" src="./../images/group.png" alt="加入QQ群" title="加入QQ群" width="65px" >
 	        					</a>
 	        				</div>
@@ -286,11 +286,11 @@
  
 					<div class="mar-t-2" >
 						<el-tabs type="border-card" class="news-list1 "> 
-							<el-tab-pane label="招生计划">
+							<el-tab-pane :label="zsjh">
 								<div class="tzgg-news" >
 									<ul >
 										<li v-for="(item ,index) in PlaningData" :key="index"> 
-											<router-link :to="{path: 'listpage/xqy', query: {id: item.id}}" :style='item.titleColor'> {{item.title  | ellipsis1}}</router-link> 
+											<router-link :to="{path: 'listpage/xqy', query: {id: item.id}}" :style='item.titleColor'> {{item.title  | ellipsis3}}</router-link> 
 											<img v-if="item.new==true" src="../images/new.png" />
 											<img v-if="item.hot==true" src="../images/hot.png" />
 											<span class="  fr">{{item.publishTime}}</span>
@@ -299,11 +299,11 @@
 								
 								</div>
 							</el-tab-pane>
-							<el-tab-pane label="招生简章">
+							<el-tab-pane :label="zsjz">
 								<div class="tzgg-news" >
 									<ul >
 										<li v-for="(item ,index) in GuideData" :key="index"> 
-											<router-link :to="{path: 'listpage/xqy', query: {id: item.id}}" :style='item.titleColor'> {{item.title | ellipsis2}}</router-link> 
+											<router-link :to="{path: 'listpage/xqy', query: {id: item.id}}" :style='item.titleColor'> {{item.title | ellipsis3}}</router-link> 
 											<img v-if="item.new==true" src="../images/new.png" />
 											<img v-if="item.hot==true" src="../images/hot.png" />
 											<span class="  fr" >{{item.publishTime}}</span>
@@ -335,7 +335,7 @@
 		<div class="center mar-t-2 pc">
 				<div class="school-xyfc">
 					<div style="overflow: hidden; height: 30px;line-height: 30px;">
-						<p class="tzggsx fl">校园风采</p>
+						<p class="tzggsx fl">{{xyfc}}</p>
 						<span class="fr">
 							<router-link to="/xyfc">查看更多>></router-link>
 						</span> 
@@ -355,7 +355,7 @@
  
 		<div class=" mar-t-2 mobile ">
 			<div class="tz-tit"  >
-				<p class="tzggsx fl">校园风采</p>
+				<p class="tzggsx fl">{{xyfc}}</p>
 				<span class="fr">
 					<router-link to="/xyfc">查看更多>></router-link>
 				</span>
@@ -428,14 +428,15 @@
 </template>
 <script>
 import axios from 'axios'
+import qs from 'qs'
 import { formatDate } from "@/datetime/formatDate"
   export default {
 
 	  		filters: {
 				ellipsis (value) {
 					if (!value) return ''
-						if (value.length > 45) {
-							return value.slice(0,45) + '...'
+						if (value.length > 35) {
+							return value.slice(0,35) + '...'
 						}
 					return value
 				} ,
@@ -452,6 +453,14 @@ import { formatDate } from "@/datetime/formatDate"
 						return value.slice(0,16) + '...'
 					}
 					return value
+				},
+
+				ellipsis3 (value) {
+					if (!value) return ''
+					if (value.length > 15) {
+						return value.slice(0,15) + '...'
+					}
+					return value
 				}
 			},
 			 
@@ -464,7 +473,7 @@ import { formatDate } from "@/datetime/formatDate"
 		activeName: 'first',
 		imglist:[],
 		vcrvideo:'',
-		host:'http://47.92.84.126',
+		host:'http://zs.siso.edu.cn',
 		id:'',
 		idtype:"",
 		NoticeData:[ ],
@@ -486,11 +495,25 @@ import { formatDate } from "@/datetime/formatDate"
 		imgurl:'',	
 		typedata:'',
 		qqhm:'',
+
+
+				home:'',
+                 tzgg:'',
+                 zyjs:'',
+                 zsjz:'',
+                 zsjh:'',
+                 lqcx:'',
+                 xyfc:'',
+                 bdzn:'',
+                 lxwm:'',
+                 rmwd:'',
+                 timeinl:'',
 	  };
 	  
 	},
 	created(){   
 			this.getVideo();
+			this.getlable()
 
 			this.Notice();
 			this.Guide();
@@ -504,22 +527,60 @@ import { formatDate } from "@/datetime/formatDate"
 			this.getlinkOut(); 
          },
          methods:{
+
+			 getlable(){ 
+				this.$http.get("/app/article/getLabel" ).then((response) => { 
+                    var data = response.data.list ;
+                    for(var i =0 ; i<data.length;i++){
+                        if(data[i].code == 'sys_label_index'){
+                            this.home = data[i].name
+                        }
+                         if(data[i].code == 'sys_label_notice'){
+                            this.tzgg = data[i].name
+                        }
+                         if(data[i].code == 'sys_label_introduce'){
+                            this.zyjs = data[i].name
+                        }
+                         if(data[i].code == 'sys_label_regulation'){
+                            this.zsjz = data[i].name
+                        }
+                         if(data[i].code == 'sys_label_plan'){
+                            this.zsjh = data[i].name
+                        }
+                        if(data[i].code == 'sys_label_enroll'){
+                            this.lqcx = data[i].name
+                        }
+                         if(data[i].code == 'sys_label_elegant'){
+                            this.xyfc = data[i].name
+                        }
+                         if(data[i].code == 'sys_label_report'){
+                            this.bdzn = data[i].name
+                        }
+                         if(data[i].code == 'sys_label_contact'){
+                            this.lxwm = data[i].name
+                        }
+                         if(data[i].code == 'sys_label_school_idx'){
+                            this.rmwd = data[i].name
+                        } 
+                    }  
+				})  
+			},
  
 
-			 qxan(){
+			qxan(){
 				this.mask=false;
 				this.show_d=false;
-			 },
+			},
 			selectGood($event,food){
-					this.selectedFood = food;    //将当前点击的数据放入显示数组
-					this.imgurl=this.selectedFood.url ;  
+				this.selectedFood = food;    //将当前点击的数据放入显示数组
+				this.imgurl=this.selectedFood.url ;  
 
-					 this.$nextTick(() => { 
-                        this.$refs.videoPlay.load() 
-                   })
-					this.typedata= this.selectedFood.type;
-					this.mask=true;
-					this.show_d=true;
+					this.$nextTick(() => { 
+					this.$refs.videoPlay.load() 
+				})
+				this.typedata= this.selectedFood.type;
+				this.mask=true;
+				this.show_d=true;
 			},
 
 			handleClick(tab, event) {
@@ -543,10 +604,8 @@ import { formatDate } from "@/datetime/formatDate"
 						arr[i].publishTime = datatime.substring(0, datatime.length - 8);
 						arr[i].titleColor = 'color:'+arr[i].titleColor
 					}
-					this.NoticeData =  arr;
- 
-				}) 
-
+					this.NoticeData =  arr; 
+				})  
 			},
 			//招生计划
 			Planing(){
@@ -561,8 +620,7 @@ import { formatDate } from "@/datetime/formatDate"
 						arr[i].titleColor = 'color:'+arr[i].titleColor
 					}
 					this.PlaningData =  arr; 
-				}) 
-
+				})  
 			},
 			//招生简章
 			Guide(){
@@ -576,16 +634,17 @@ import { formatDate } from "@/datetime/formatDate"
 						arr[i].publishTime = datatime.substring(0, datatime.length - 8);
 						arr[i].titleColor = 'color:'+arr[i].titleColor
 					}
-					this.GuideData =  arr;  
-					// console.log(this.GuideData)
+					this.GuideData =  arr;   
 				})  
 			},
 			// 校园动态
 		 
 			senddata(){   
 				 axios({ 
-					method: 'post',
+					method: 'post', 
+					// url:'http://zs.siso.edu.cn:8081/home/GetNoticeList?pagesize=12&pagecode=1',
 					url:'http://192.168.11.34:8081/home/GetNoticeList?pagesize=12&pagecode=1',
+					dataType: "jsonp",  
 					}).then((resp)=>{ 
 						var str = resp.data.result;  
 						 this.xydt= JSON.parse(str); 
@@ -602,14 +661,13 @@ import { formatDate } from "@/datetime/formatDate"
 			getVideo(){
 				this.$http.get("/app/vcrvideo/list").then((response) => {
 					// var link = this.host + response.data.vcrVideoData.url;
-this.vcrvideo = this.host + response.data.vcrVideoData.url;
+				this.vcrvideo = this.host + response.data.vcrVideoData.url;
 					//  this.vcrvideo =' <source src='+ link+'type="video/mp4">'
- this.$nextTick(() => {
+ 				this.$nextTick(() => {
 
                         this.$refs.videoPlay.load()
 
-                   })
-					 console.log(this.vcrvideo)
+                   }) 
 				}) 
 
 			},
@@ -643,9 +701,7 @@ this.vcrvideo = this.host + response.data.vcrVideoData.url;
 			getlinkIn(){ 
                  this.$http.get("/app/linkinfo/list",{params: { type:'linkTypeIn'}}).then((response) => {
 					 let arr = response.data.linkInfoList ;
-					 for(var i =0 ;i<arr.length;i++){
-						 arr[i].url="http://"+arr[i].url
-					 }
+					  
 					 this.linkINlist=response.data.linkInfoList;
 				}) 
 
@@ -653,10 +709,7 @@ this.vcrvideo = this.host + response.data.vcrVideoData.url;
 			//外链
 			getlinkOut(){ 
                  this.$http.get("/app/linkinfo/list",{params: { type:'linkTypeOut'}}).then((response) => {
-					 let arr = response.data.linkInfoList ;
-					 for(var i =0 ;i<arr.length;i++){
-						 arr[i].url="http://"+arr[i].url
-					 }
+					 let arr = response.data.linkInfoList ; 
 					 this.linkOutlist=response.data.linkInfoList ;
 				}) 
 

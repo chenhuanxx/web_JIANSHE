@@ -75,11 +75,11 @@
 		},
      data() {
       return {
-	   host:'http://47.92.84.126',
+	  	host:'http://zs.siso.edu.cn',
 	   imglist:[],
        total:1,
 		page:'1',
-		size:'6',
+		size:'9',
 		imgurl:'',	
 		typedata:'',
 		mask:false,
